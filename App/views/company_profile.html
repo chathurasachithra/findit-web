@@ -1,0 +1,423 @@
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+<style>
+    /*---------------------------- company description card begin --------------------------*/
+    .block-update-card {
+        border: 1px #FFFFFF solid;
+        border-radius: 5px;
+        width: 100%;
+        float: left;
+        margin-top: 0;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: white;
+    }
+    .block-update-card .h-status {
+        width: 100%;
+        height: 7px;
+        background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+    }
+    .block-update-card .update-card-body {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+    .block-update-card .update-card-body h2 {
+        color: #737373;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2em;
+    }
+    .block-update-card .update-card-body p {
+        color: #737373;
+        font-size: 0.8em;
+    }
+    /*-------------------------------------company description card end-----------------------------------*/
+
+    /*-------------------------------------comman styles begin---------------------------------------------*/
+    .tab_shadow{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    /*-------------------------------------comman styles end-----------------------------------------------*/
+
+    .banner_img{
+        height: auto;
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    .video-box img {
+        width: 100%;
+        border-radius: 3px;
+    }
+
+    .video-box .img-thumb-box a:before {
+        content: "";
+        position: absolute;
+        width: 93%;
+        height: 93%;
+        z-index: 10;
+        background: transparent url(assets/images/youtube.png) center center no-repeat;
+        background-size: 75px;
+    }
+
+    .ng-image-gallery .ng-image-gallery-thumbnails .thumb:not(:last-child) {
+        margin-right: 15px !important;
+        margin-bottom: 15px !important;
+        border-radius: 3px;
+    }
+
+    .ng-image-gallery .ng-image-gallery-thumbnails .thumb {
+        border-radius: 3px;
+        /*width: 30.8% !important;*/
+    }
+
+    .tab-h2 {
+        color: #737373;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2em;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .tab-hr {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .discount-highlight {
+        background-color: #000000;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        opacity: 0.75;
+        font-family: Verdana, Geneva, sans-serif;
+        color: #FFF;
+        bottom: 0px;
+        z-index: 1000;
+    }
+
+    .progress-custom {
+        height: 7px;
+        margin-bottom: 0px;
+        overflow: hidden;
+        background-color: #a09696;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .discount-amount {
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 8px;
+        margin-bottom: 3px;
+        font-size: 17px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage {
+        color: #13f103;;
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage span {
+        float: right;
+        margin-right: 15px;
+        color: #a09696;
+    }
+
+    .progress-custom .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #13f103;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+
+</style>
+<nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="view_all/promotions/all">Promotions</a></li>
+                <li><a href="view_all/events/all">Events</a></li>
+                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/directory">Companies</a></li>
+                <li><a href="/register/company">Register Free</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+
+    <!--navbar end-->
+
+    <!--content area begin-->
+    <section >
+        <div class="container-fluid">
+            <!--company banner begin-->
+            <div class="row" style="margin-top: 70px; margin-bottom: 10px;">
+                <div ng-if="company.is_banner" class="col-md-12" style="padding-right: 0px;padding-left: 0px;">
+                    <img  src="{{company.company_banner}}" class="img-responsive  banner_img" />
+                </div>
+            </div>
+            <!--company banner end-->
+
+            <div class="row">
+
+                <!--Left side bar begin-->
+                <div class="col-md-3 col-xs-12">
+
+                    <!-- Company Name and description begin -->
+                    <div class="block-update-card status embark_effect1">
+                        <div class="update-card-body">
+                            <h2 >{{company.name}}</h2>
+                            <hr  ng-if="company.is_desc" />
+                            <p ng-if="company.is_desc" style="text-align: center">{{company.desc}}</p>
+                        </div>
+                    </div>
+                    <!-- Company Name and description end -->
+
+                    <!--<div class="block-update-card status embark_effect1" style="margin-top: 10px; padding: 0px">-->
+                        <!--<div class="update-card-body" style="margin: 0px; padding: 5px">-->
+                            <!--<span style="margin-left: 20px" class="pull-left">{{total_views}} Views</span>-->
+                            <!--<span style="margin-right: 20px" class="pull-right">{{total_promotions}} Posts</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!-- Company Logo begin -->
+                    <div ng-if="company.is_logo" class="block-update-card status embark_effect1" style="margin-top: 10px; padding: 0px">
+                        <div class="update-card-body" style="margin: 0px; padding: 10px">
+                            <img src="{{company.company_logo}}" style="display: block; margin: auto; max-width: 275px;" />
+                        </div>
+                    </div>
+                    <!-- Company Logo end -->
+
+                    <!-- Social icons begin -->
+                    <div ng-if="company.is_social || company.is_tel"  class="block-update-card status embark_effect1" style="margin-top: 10px; padding: 10px">
+                        <div class="update-card-body" style="margin: 0px; padding: 10px">
+                            <ul ng-if="!company.is_social" class="social-icons post-socials pull-right">
+                                <li style="margin-left: 5px">N / A</li>
+                            </ul>
+                            <ul ng-if="company.is_social" class="social-icons post-socials pull-right">
+                                <li ng-if="company.facebook" style="margin-left: 5px"><a href="{{company.facebook}}" target="_blank"><i style="cursor: pointer; color: #292929" class="fa fa-facebook-official "></i></a></li>
+                                <li ng-if="company.twitter" style="margin-left: 5px"><a href="{{company.twitter}}" target="_blank"><i style="cursor: pointer; color: #292929" class="fa fa-twitter  "></i></a></li>
+                                <li ng-if="company.youtube" style="margin-left: 5px"><a href="{{company.youtube}}" target="_blank"><i style="cursor: pointer; color: #292929" class="fa fa-youtube "></i></a></li>
+                                <li ng-if="company.linkedIn" style="margin-left: 5px"><a href="{{company.linkedIn}}" target="_blank"><i style="cursor: pointer; color: #292929" class="fa fa-linkedin "></i></a></li>
+                                <li ng-if="company.instagram" style="margin-left: 5px"><a href="{{company.instagram}}" target="_blank"><i style="cursor: pointer; color: #292929" class="fa fa-instagram "></i></a></li>
+                            </ul>
+                            <span ng-if="!company.is_tel" class="pull-left">N /A</span>
+                            <span ng-if="company.is_tel" class="pull-left"><i  class="fa fa-phone fa-fw social_icons_custom"></i> {{company.tel}}</span>
+                        </div>
+                    </div>
+                    <!-- Social icons end -->
+
+                    <!-- Address card begin -->
+                    <div ng-if="company.is_address" class="block-update-card status embark_effect1" style="margin-top: 10px;">
+                        <div class="update-card-body">
+                            <h2 ><i style="cursor: pointer" class="fa fa-home fa-fw social_icons_custom"></i></h2>
+                            <p style="text-align: center">{{company.address}}</p>
+                        </div>
+                    </div>
+                    <!-- Address card end -->
+
+                    <!--company map card begin-->
+                    <div ng-if="company.is_map" class="block-update-card status embark_effect1" style="margin-top: 10px;">
+                        <div class="update-card-body">
+                            <div class="col-md-12">
+                                <ng-map center="{{longitude}},{{latitude}}" zoom="13">
+                                    <marker draggable="false" position="{{longitude}},{{latitude}}"  visible="true" title="Company Location"></marker>
+                                </ng-map>
+                            </div>
+                        </div>
+                    </div>
+                    <!--company map card end-->
+
+                    <!-- Company website card begin -->
+                    <!-- Address card begin -->
+                    <div ng-if="company.is_web" class="block-update-card status embark_effect1" style="margin-top: 10px; margin-bottom: 10px;">
+                        <div class="update-card-body">
+                            <h6     class="text-center"><i  class="fa fa-globe"></i><a href="{{company.web}}" target="_blank"><u>{{company.web}}</u></a></h6>
+                        </div>
+                    </div>
+                    <!-- Company website card end -->
+
+                </div>
+                <!--left side bar end-->
+
+                <!--Right side bar begin-->
+                <div class="col-md-6 col-xs-12 comp_tab_panel" style="float: left;">
+                    <div class="row" style="width: 100%; display: inline-block; margin: auto">
+                        <div ng-if="!company.is_banner && company.facebook" class="panel with-nav-tabs panel-default embark_effect1" style="background-color: #3c3c3c">
+                            <div class="fb-page text-center" width="1000px" style="display:block; margin: auto"  data-href="{{company.facebook}}" data-tabs="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="{{company.facebook}}" class="fb-xfbml-parse-ignore"><a href="{{company.facebook}}">{{company.name}}</a></blockquote></div>
+                        </div>
+                        <div class="panel with-nav-tabs panel-default embark_effect1">
+                            <!--<div class="panel-heading">-->
+                            <!--<ul class="nav nav-pills nav-justified" style="display: inline-block; margin: auto">-->
+                            <!--<li class="active"><a ng-click="getAll()" data-toggle="tab">Home</a></li>-->
+                            <!--<li><a ng-click="getPromotions()" data-toggle="tab">Promotions <b class="badge">{{promo_count}}</b></a></li>-->
+                            <!--<li><a ng-click="getEvents()" data-toggle="tab">Events <b class="badge">{{events_count}}</b></a></li>-->
+                            <!--<li><a ng-click="getDiscounts()"   data-toggle="tab">Discount Zone <b class="badge">{{discounts_count}}</b></a></li>-->
+                            <!--</ul>-->
+                            <!--</div>-->
+                            <div class="panel-body margin-top-0" style="padding: 5px;padding-bottom: 15px;">
+                                <div class="tab-content">
+                                    <span ng-if="loading_tab_view"  class="text-center" style="text-align:center; display: block; margin: auto">loading ...</span>
+                                    <span ng-if="fr_count == 0 && !loading_tab_view" class="text-center" style="text-align:center; display: block; margin: auto"> Sorry no relevant classifieds added yet!</span>
+                                    <div class="tab-pane fade in active" id="tab" ng-show="!loading_tab_view">
+                                        <div class="lp-section-content-container lp-list-grid-section col-md-12" ng-show="fr_count > 0">
+                                            <h2 class="tab-h2">Promotions</h2>
+                                            <hr class="tab-hr">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="ue_promo in filter_results">
+                                                    <div class="promo_box">
+                                                        <div class="promo_image text-center">
+                                                            <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                                                <img style="vertical-align: middle; margin-top: auto" ng-click="expand(ue_promo)"
+                                                                     src="{{ue_promo.promo_image}}" class="img-responsive" />
+
+                                                                <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                                                    <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                                                    <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                                                    <div class="progress-custom">
+                                                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                                                            <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                                            <div ng-click="expand(ue_promo)" class="promo_heading text-center">
+                                                                <a >{{ue_promo.promo_name}}</a>
+                                                            </div>
+                                                        </a>
+                                                        <div class="promo_bottom">
+                                                            <div class="row">
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+                                                                    <img src="{{ue_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                                                </div>
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                                                    <img src="{{ue_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel with-nav-tabs panel-default embark_effect1" style="padding: 20px;padding-right: 0px; padding-top: 10px;"
+                             ng-if="promo_images.length>0">
+                            <h2 class="tab-h2">Gallery</h2>
+                            <hr>
+                            <ng-image-gallery images="promo_images" methods="methods" conf="conf"
+                                              thumbnails="thumbnails" thumb-size="190"
+                                              inline="inline" bubbles="bubbles" bubble-size="bubbleSize"
+                                              img-bubbles="imgBubbles" bg-close="bgClose" piracy="true"
+                                              on-open="opened();" on-close="closed();" on-delete="delete(img, cb)"
+                                              bg-close="false">
+                            </ng-image-gallery>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-3 col-xs-12" style="float: left;">
+                    <div  ng-if="company.facebook" class="block-update-card status embark_effect1">
+                        <div class="update-card-body">
+                            <div class="fb-page" data-href="{{company.facebook}}" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="{{!company.is_banner}}" data-show-facepile="true"><blockquote cite="{{company.facebook}}" class="fb-xfbml-parse-ignore"><a href="{{company.facebook}}">{{company.name}}</a></blockquote></div>
+                        </div>
+                    </div>
+
+                    <div ng-if="promo_videos.length>0" style="margin-top: 10px;" class="block-update-card status embark_effect1 video-box">
+
+                        <div class="col-md-12 img-thumb-box" style="padding: 10px;min-height: 190px;" ng-repeat="promo_video in promo_videos" >
+                            <a href="#" ng-click="setVideoId(promo_video)" data-toggle="modal" data-target="#videoModal">
+                                <img ng-src="https://img.youtube.com/vi/{{promo_video}}/default.jpg">
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--Right side bar end-->
+
+
+                <!-- Modal -->
+                <div id="videoModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <iframe width="100%" height="315" ng-src="{{getYoutubeIFrame(selectedVideo) | trusted}}"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Modal End -->
+
+            </div>
+        </div>
+    </section>
+</div>

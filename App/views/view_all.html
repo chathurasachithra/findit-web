@@ -1,0 +1,336 @@
+<style>
+    .event-date {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        float: left;
+        padding: 0px 0;
+        width: 48px;
+        text-align: center;
+        text-transform: uppercase;
+        background: #fff;
+        border: 2px solid #eeeeee;
+    }
+
+    .event-date .event-day {
+        display: block;
+        margin: 0 0 0px 0;
+        font-size: 29px;
+        line-height: 1;
+        color: red;
+    }
+
+    .event-date .event-month {
+        font-size: 11px;
+        color: #000;
+        font-weight: 700;
+    }
+
+    .discount-date {
+        position: absolute;
+        bottom: 0px;
+        left: 8px;
+        float: left;
+        padding: 6px 0px 0px 0px;
+        width: 100px;
+        text-align: center;
+        text-transform: uppercase;
+        background: #6690ff;
+        height: 40px;
+    }
+
+    .discount-date .discount-day {
+        display: block;
+        margin: 0 0px 0px 6px;
+        font-size: 28px;
+        line-height: 1;
+        color: #ffffff;
+        width: 100%;
+        text-align: left;
+    }
+
+    .discount-date .discount-day span{
+        margin: 0px 0px 0px 0px;
+        font-size: 9px;
+        line-height: 1;
+        color: #ffffff;
+        width: 100%;
+        text-align: left;
+        padding: 5px;
+        position: absolute;
+    }
+
+    .discount-date .discount-day p{
+        font-size: 13px;
+        color: #ffffff;
+        position: absolute;
+        margin-left: 4px;
+        bottom: 3px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .blink_me {
+        -webkit-animation-name: blinker;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+
+        -moz-animation-name: blinker;
+        -moz-animation-duration: 1s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+
+        animation-name: blinker;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @-moz-keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+
+    .discount-highlight {
+        background-color: #000000;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        opacity: 0.75;
+        font-family: Verdana, Geneva, sans-serif;
+        color: #FFF;
+        bottom: 0px;
+        z-index: 1000;
+    }
+
+    .progress-custom {
+        height: 7px;
+        margin-bottom: 0px;
+        overflow: hidden;
+        background-color: #a09696;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .discount-amount {
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 8px;
+        margin-bottom: 3px;
+        font-size: 17px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage {
+        color: #13f103;;
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage span {
+        float: right;
+        margin-right: 15px;
+        color: #a09696;
+    }
+
+    .progress-custom .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #13f103;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="view_all/promotions/all">Promotions</a></li>
+                <li><a href="view_all/events/all">Events</a></li>
+                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/directory">Companies</a></li>
+                <li><a href="/register/company">Register Free</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+    <treasure-overlay-spinner active='main_loader'>
+
+        <!--section begin-->
+        <section>
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <!--right sidebar begin-->
+                    <div class="col-lg-9 col-lg-push-3" style="top: 100px">
+                        <div class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px" >
+                                <h4 class="text-center">{{title_message}}</h4>
+                            </div>
+                            <div class="panel-body margin-top-0">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="tab">
+                                        <div class="lp-section-content-container lp-list-grid-section col-md-12">
+                                            <div class="row">
+                                                <span ng-if="loading_tab_view" class="text-center" style="text-align: center; display: block; margin: auto">loading ...</span>
+                                                <span ng-if="fr_count == 0 && !loading_tab_view" class="text-center" style="text-align: center; display: block; margin: auto"> Sorry no relevant classifieds added yet!</span>
+                                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" ng-repeat="ue_promo in filter_results">
+                                                    <div class="promo_box">
+                                                        <div class="promo_image text-center">
+                                                            <a href="/promotion/{{ue_promo.promotion_slug}}">
+                                                                <div class="event-date" ng-if="ue_promo.parent_category_slug == 'events'">
+                                                                    <meta content="11/11/2017 12:00:00 AM" itemprop="startDate">
+                                                                    <time class="dtstart" datetime="11/11/2017 12:00:00 AM">
+                                                                    <span class="value-title" title="11/11/2017 12:00:00 AM">
+                                                                        <span class="event-day">{{ ue_promo.promo_offer_date  | date : 'd'}}</span>
+                                                                        <span class="event-month">{{ ue_promo.promo_offer_date  | date : 'MMM'}}</span>
+                                                                    </span>
+                                                                    </time>
+                                                                </div>
+
+                                                                <div class="discount-date" ng-if="ue_promo.parent_category_slug != 'events' && ue_promo.promo_remain!=null">
+                                                                    <meta content="11/11/2017 12:00:00 AM" itemprop="startDate">
+                                                                    <time class="dtstart" datetime="11/11/2017 12:00:00 AM">
+                                                                    <span class="value-title" title="11/11/2017 12:00:00 AM">
+                                                                        <span class="discount-day" ng-bind-html="ue_promo.promo_remain"></span>
+                                                                    </span>
+                                                                    </time>
+                                                                </div>
+
+                                                                <img style="vertical-align: middle; margin-top: auto" ng-click="expand(ue_promo)" src="{{ue_promo.promo_image}}"
+                                                                     class="img-responsive" />
+
+
+                                                                <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                                                    <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                                                    <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                                                    <div class="progress-custom">
+                                                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                                                            <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </a>
+                                                        </div>
+
+                                                        <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                                            <div ng-click="expand(ue_promo)" class="promo_heading text-center">
+                                                                <a >{{ue_promo.promo_name}}</a>
+                                                            </div>
+                                                        </a>
+                                                        <div class="promo_bottom">
+                                                            <div class="row">{{}}
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="ue_promo.promo_company_logo!='' && ue_promo.promo_company_logo!=null">
+                                                                    <img src="{{ue_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                                                </div>
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                                                    <img src="{{ue_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--right sidebar end-->
+
+                    <!--left side bar begin-->
+                    <div class="col-lg-3 col-lg-pull-9" style="top: 100px">
+                        <div class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h4 class="text-center">{{parent_category}} Categories</h4>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+                                <div class="tab-content" style="padding: 0px" >
+
+                                        <span ng-if="loading_tab_view" class="text-center" style="text-align: center; display: block; margin: auto">loading ...</span>
+                                        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6"  ng-repeat="cat in categories" style="margin: 0px">
+                                            <a href="view_all/{{cat.parent_category_slug}}/{{cat.category_slug}}">
+                                            <div class="text-center sub_cat_box embark_effect1">
+                                                <img src="{{cat.icon}}" /><Br />
+                                                {{cat.category_name}}
+                                            </div>
+                                            </a>
+                                        </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--left side bar end-->
+
+
+
+                </div>
+
+            </div>
+        </section>
+        <!--section end-->
+
+    </treasure-overlay-spinner>
+</div>

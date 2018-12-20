@@ -1,0 +1,1067 @@
+<style>
+
+
+    .watch-card:hover .artist-title a, .watch-card:hover .listing-tab .tab-content ul li a{color:#167ac9;}
+    .listing-tab .tab-content ul li:hover{
+        cursor:pointer;
+        text-decoration:underline;
+        background-color: cornflowerblue;
+    }
+    .artist-title a{test-decoration:none;font-size:21px;font-family:arial, san-serif; color:#555;}
+    .artist-title a:hover{color:#16a3de;}
+    .artist-collage img{max-width:100%;}
+    .listing-tab{
+        padding:0;
+    }
+    .listing-tab .tab-content ul{padding:0;margin:0;}
+    .listing-tab .tab-content ul li {
+        list-style-type: none;
+        padding: 8px;
+    }.listing-tab .tab-content ul li {
+         list-style-type: none;
+         padding: 8px;
+         padding-left: 20px;
+         font-size: 13px;
+         color: #666;
+     }.listing-tab .tab-content ul li a{text-decoration:none; color:black;}
+    .listing-tab .tab-content ul li span{display:inline-block;float:right;padding-right:10px;}
+    .listing-tab .nav-tabs>li,.nav-tabs>li a:hover{margin-bottom:0;background:none;}
+    .listing-tab .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{border:none;background:none;}
+    .listing-tab .nav-tabs>li>a:hover{border-color:none;color:cornflowerblue; cursor: pointer}
+    .listing-tab .nav-tabs>li>a{padding:17px 0 7px;color:#333;margin-left:15px;}
+    .listing-tab .nav-tabs>li.active>a{color:cornflowerblue;}
+    .listing-tab{background-color:#fff;}
+
+    .tabpanel li:hover{
+        background-color: cornflowerblue;
+        text-decoration: none;
+    }
+
+    .tabpanel li>a:hover{
+        text-decoration: none;
+    }
+
+    .listing-tab .nav {
+        background-color: #363f48;
+
+    }
+
+    .listing-tab .nav-tabs>li>a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .listing-tab .nav li:hover{
+        background-color: #363f48;
+    }
+    .lib-panel {
+        background-color: #e7e7e7;
+        margin: 20Px;
+    }
+    .lib-panel img {
+        width: auto;
+        height: 100px;
+        display: block;
+        margin:auto;
+        background-color: #e7e7e7;
+    }
+
+    .lib-panel .row,
+    .lib-panel .col-md-6 {
+        padding: 0;
+        background-color: #e7e7e7;
+    }
+
+
+    .lib-panel .lib-row {
+        padding: 0 20px 0 20px;
+    }
+
+    .lib-panel .lib-row.lib-header {
+        background-color: #e7e7e7;
+        font-size: 10px;
+        padding: 10px 20px 0 20px;
+    }
+
+    .lib-panel .lib-row.lib-header .lib-header-seperator {
+        height: 2px;
+        width: 26px;
+         background-color: #e7e7e7;;
+        margin: 7px 0 7px 0;
+    }
+
+    .lib-panel .lib-row.lib-desc {
+        position: relative;
+        height: 100%;
+        display: block;
+        font-weight: bolder;
+        font-size: 13px;
+    }
+    .lib-panel .lib-row.lib-desc a{
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        left: 20px;
+    }
+
+    .row-margin-bottom {
+        margin-bottom: 20px;
+    }
+
+    .box-shadow {
+        -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .no-padding {
+        padding: 0;
+    }
+
+    .cat_box_samll{
+        cursor: pointer;
+        background-color: #363f48; color: white; margin: 14px; padding: 5px; text-align:center;
+    }
+
+    .cat_box_samll:hover{
+        background-color:cornflowerblue;
+    }
+
+    .block-update-card {
+        border: 1px #FFFFFF solid;
+        width: 100%;
+        float: left;
+        margin-top: 0;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: #FFFFFF;
+    }
+    .block-update-card .h-status {
+        width: 100%;
+        height: 7px;
+        background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+    }
+    .block-update-card .update-card-body {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+    .block-update-card .update-card-body h2 {
+        color: #737373;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2em;
+    }
+    .block-update-card .update-card-body p {
+        color: #737373;
+        font-size: 0.8em;
+    }
+
+    .social_share_custom {
+        font-size: 16px;
+        padding-left: 2px;
+        padding-right: 8px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+    .social-buttons {
+        position: relative;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #fff;
+        /*background-color: #205081;*/
+        border-color: rgba(0,0,0,0.2);
+        border-radius: 20px;
+        margin: 4px;
+    }
+
+    .social-buttons span {
+        font-weight: 600;
+    }
+    
+    .calender-countdown {
+        background-image: url(/assets/images/cal.png);
+        position: inherit;
+        width: 135px;
+        height: 135px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 0px auto;
+        padding-left: 0px;
+        padding-top: 66px;
+    }
+
+    .countdown-date {
+        float: left;
+        position: initial;
+        z-index: 1000000;
+        font-size: 18px;
+        line-height: 1;
+        color: #337ab7;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        margin-top: 6px;
+    }
+
+    .discount-date {
+        text-align: center;
+        text-transform: uppercase;
+        background: #6690ff;
+        height: 32px;
+        color: #fff;
+        border-radius: 3px;
+        padding-top: 8px;
+        background-color: #fff;
+        border: #efefef;
+        border-radius: 3px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background: #4c9aed;
+        background: rgb(32,130,160);
+        background: -moz-linear-gradient(top, rgba(32,130,160,1) 10%, rgba(41,151,219,1) 94%, rgba(32,124,202,1) 100%, rgba(125,185,232,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(32,130,160,1) 10%,rgba(41,151,219,1) 94%,rgba(32,124,202,1) 100%,rgba(125,185,232,1) 100%);
+    }
+
+
+
+    .discount-date .discount-day p{
+        font-size: 13px;
+        color: #ffffff;
+        position: absolute;
+        margin-left: 4px;
+        bottom: 3px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .blink_me {
+        -webkit-animation-name: blinker;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+
+        -moz-animation-name: blinker;
+        -moz-animation-duration: 1s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+
+        animation-name: blinker;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @-moz-keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    .eventdetail table tr td {
+        text-align: center;
+        background-color: #fff;
+        padding-left: 10px;
+        text-align: left;
+        padding: 10px;
+        border: 1px #ebebeb solid;
+        width: 33%;
+    }
+
+    .eventdetail table .event-bold {
+        font-weight: bold;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* discount section */
+    .alert-info {
+        color: #31708f;
+        background-color: #000608ad;
+        border-color: #828886;
+        padding-bottom: 0px;
+        cursor: pointer;
+    }
+
+    .alert .discount-usage {
+        color: #12f902;;
+        text-align: left;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .alert .discount-amount {
+        text-align: left;
+        margin-bottom: 5px;
+        font-size: 18px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .alert .discount-usage span {
+        float: right;
+        color: #cec0c0;
+    }
+
+    .progress-custom-alert {
+        height: 7px;
+        margin-bottom: 0px;
+        overflow: hidden;
+        background-color: #cec0c0;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    }
+
+    .progress-custom-alert .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #12f902;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+
+    .blink-me {
+        animation: blinker 1s linear infinite;
+        color: #12f902;
+    }
+
+    .discount-highlight {
+        background-color: #000000;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        opacity: 0.75;
+        font-family: Verdana, Geneva, sans-serif;
+        color: #FFF;
+        bottom: 0px;
+        z-index: 1000;
+    }
+
+    .progress-custom {
+        height: 7px;
+        margin-bottom: 0px;
+        overflow: hidden;
+        background-color: #a09696;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .discount-amount {
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 8px;
+        margin-bottom: 3px;
+        font-size: 17px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage {
+        color: #13f103;;
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage span {
+        float: right;
+        margin-right: 15px;
+        color: #a09696;
+    }
+
+    .progress-custom .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #13f103;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+
+
+</style>
+
+<!-- Modal -->
+<div class="modal fade" id="discount-modal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form role="form" name="form_coupon">
+                <div class="modal-header" style="text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="exampleModalLabel">Get {{selected_promotion.discount_text}} discount coupon code</h2>
+
+                </div>
+                <div class="modal-body">
+
+                    <div ng-if="sucess"  class="alert alert-success text-center">{{success_message}}</div>
+                    <div ng-if="error" class="alert alert-danger text-center">{{error_message}}</div>
+
+                    <div class="row form-group">
+                        <div class="col-md-5">
+                            <label style="margin-top: 2px">Your name *</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input ng-model="name" class="form-control" type="text" name="name"
+                                   required>
+                            <!--Error Messages-->
+                            <div ng-if="form_coupon.name.$dirty" ng-messages="form_coupon.name.$error"  role="alert">
+                                <div style="color: red" ng-message="required"> Name is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-5">
+                            <label style="margin-top: 2px">Email address *</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input ng-model="email" class="form-control" type="email" name="email" required>
+                            <!--Error Messages-->
+                            <div ng-if="form_coupon.email.$dirty" ng-messages="form_coupon.email.$error" role="alert">
+                                <div style="color: red" ng-message="required"> Email address is required</div>
+                                <div style="color: red" ng-message="email"> Invalid email address</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-5">
+                            <label style="margin-top: 2px">NIC number *</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input ng-model="nic" class="form-control" type="text" name="nic"
+                                   ng-minlength="10"
+                                   ng-maxlength="10"
+                                   required>
+                            <!--Error Messages-->
+                            <div ng-if="form_coupon.nic.$dirty" ng-messages="form_coupon.nic.$error" role="alert">
+                                <div style="color: red" ng-message="required"> NIC number is required</div>
+                                <div style="color: red" ng-message="minlength"> Invalid NIC number</div>
+                                <div style="color: red" ng-message="maxlength"> Invalid NIC number</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-5">
+                            <label style="margin-top: 2px">Contact number *</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input ng-model="phone" class="form-control" type="text" name="phone"
+                                   ng-minlength="10" required>
+                            <!--Error Messages-->
+                            <div ng-if="form_coupon.phone.$dirty" ng-messages="form_coupon.phone.$error"  role="alert">
+                                <div style="color: red" ng-message="required"> Contact number is required</div>
+                                <div style="color: red" ng-message="minlength">Invalid Contact number</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="onSubmit" ng-click="getCoupon()">Get Coupon</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="view_all/promotions/all">Promotions</a></li>
+                <li><a href="view_all/events/all">Events</a></li>
+                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/directory">Companies</a></li>
+                <li><a href="/register/company">Register Free</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <!--Promotion Details begin-->
+                    <div class="col-lg-6 col-lg-push-3" style="top: 100px">
+                        <div class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <span  style="font-size: 1.6em; color: black;">{{selected_promotion.promo_name}}</span> <br />
+                                <span  style="font-size: small; color: lightslategray;" >{{selected_promotion.promo_obj.category_name}}</span>
+                                <span class="margin-left-10" style="font-size: small; color: lightslategray; " >|</span>
+                                <span class="margin-left-10" style="font-size: small; color: lightslategray; " >{{review_count}} Reviews</span>
+                                <!--<span class="margin-left-10" style="font-size: small; color: lightslategray; " >|</span>
+                                <span class="margin-left-10" style="font-size: small; color: lightslategray; " ><b><i class="fa fa-eye"></i> {{selected_promotion.promo_views}}</b></span>-->
+                                <span class="margin-left-10" style="font-size: small; color: lightslategray; " >|</span>
+                                <span style="font-size: small; color: lightslategray; margin-left: 10px" ><a href="/">back to home</a></span>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+
+                                <div class="alert alert-info"
+                                     data-toggle="modal" data-target="#discount-modal"
+                                     ng-if="selected_promotion.is_discount">
+                                    <p class="discount-amount">Get {{selected_promotion.discount_text}} coupon <a class="blink-me">here</a></p>
+                                    <p class="discount-usage">only {{selected_promotion.discount_remain}} remaining  <span>{{selected_promotion.discount_claimed}} already claimed</span></p>
+                                    <div class="progress-custom-alert">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{selected_promotion.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{selected_promotion.discount_remain_percentage}}%;">
+                                            <span class="sr-only">{{selected_promotion.discount_remain_percentage}}0% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <img class="embark_effect1 img-thumbnail" src="{{selected_promotion.promo_image}}" style="width: auto"/>
+                                <div class="tab-content">
+                                    <div class="post-row margin_top_20"
+                                         ng-bind-html="selected_promotion.promo_obj.promotion_description">
+                                    </div>
+
+
+                                    <div class="panel with-nav-tabs panel-default embark_effect1" ng-if="selected_promotion.promo_obj.parent_category_id == 2">
+
+                                        <div class="panel-body margin-top-0 text-center" style="    height: 100%;width: 100%;overflow: hidden;">
+                                            <div class="tab-content eventdetail" style="overflow-x: scroll;">
+                                                <table class="table table-striped mTop-10" style="margin-bottom: 0px;">
+                                                    <tbody>
+                                                    <tr class="event-bold">
+                                                        <td><i class="fa fa-calendar" aria-hidden="true"></i> Date</td>
+                                                        <td><i class="fa fa-clock-o" aria-hidden="true"></i> Time</td>
+                                                        <td><i class="fa fa-map-marker" aria-hidden="true"></i> Venue</td>
+                                                        <td><i class="fa fa-phone" aria-hidden="true"></i> For Reservations</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="">{{ selected_promotion.promo_obj.date }}</td>
+                                                        <td>{{ selected_promotion.promo_obj.time }} </td>
+                                                        <td>{{ selected_promotion.promo_obj.venue }}</td>
+                                                        <td>{{ selected_promotion.promo_obj.reservations }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel with-nav-tabs panel-default embark_effect1" >
+
+                                        <div class="panel-body margin-top-0 text-center">
+                                            <div class="tab-content">
+                                                <a title="Share with friends" class="btn social-buttons" style="background-color: #3b5998" href="https://www.facebook.com/sharer/sharer.php?u={{currentUrl}}"  target="_blank">
+                                                    <i style="cursor: pointer;" class="fa fa-facebook-square social_share_custom"></i>
+                                                    <span>Share</span>
+                                                </a>
+                                                <a title="Share with friends" class="btn social-buttons" style="background-color: #55acee" href="https://twitter.com/share?url={{currentUrl}}"  target="_blank">
+                                                    <i style="cursor: pointer;" class="fa fa-twitter-square social_share_custom"></i>
+                                                    <span>Tweet</span>
+                                                </a>
+
+                                                <a title="Share with friends" class="btn social-buttons" style="background-color: #ca3523" href="https://plus.google.com/share?url={{currentUrl}}"  target="_blank">
+                                                    <i style="cursor: pointer;" class="fa fa-google-plus-square social_share_custom"></i>
+                                                    <span>Share</span>
+                                                </a>
+                                                <a title="Share with friends" class="btn social-buttons" style="background-color: #005f8d" href="https://www.linkedin.com/shareArticle?mini=true&url={{currentUrl}}"  target="_blank">
+                                                    <i style="cursor: pointer;" class="fa fa-linkedin-square social_share_custom"></i>
+                                                    <span>Share</span>
+                                                </a>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div ng-if="review_count > 0" class="comments-container text-left">
+                                        <div class="comments-header">
+                                            <h3 class="text-center">{{review_count}} Reviews</h3>
+                                        </div><!--comments-header-->
+                                        <div class="comments-posts" ng-repeat="review in reviews">
+                                            <div class="comments-box" style="padding:10px;" >
+                                                <div class="comments-content">
+                                                    <div class="comments-meta-box">
+                                                        <div class="comments-author text-left">
+                                                            <div class="comments-name" style="color: lightslategray">
+                                                                {{review.reviewer_name}}
+                                                            </div>
+                                                            <div class="comments-date">
+                                                                {{review.created_at}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-description">
+                                                        <p>
+                                                            {{review.review_description}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--../comments-posts-->
+                                    </div>
+                                    <div class="comments-form" style="background-color: #e7e7e7" id="submitreview">
+                                        <div class="comments-header lp-border-bottom clearfix">
+                                            <h5>Write a Review</h5>
+                                        </div><!--comments-header-->.
+                                        <div class="comments-inner-container" style="top:5px; padding: 20px;">
+                                            <div class="col-md-6 padding-left-0">
+                                                <div class="form-group clearfix">
+                                                    <input ng-model="rw.name" placeholder="Name.." type="text" class="form-control" id="inputName" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 padding-right-0">
+
+                                                <div class="form-group clearfix">
+                                                    <input ng-model="rw.email" placeholder="Email.." type="email" class="form-control" id="inputEmail" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="padding-left: 15px; padding-right: 15px">
+
+                                                <textarea ng-model="rw.desc" placeholder="Review.." class="form-control" rows="2" id="inputComments"></textarea>
+                                            </div>
+                                            <div class="form-group margin-bottom-5">
+                                                <button ng-click="addReview(rw)"  value="Submit Review" class="btn btn-default">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Promotion Details end-->
+
+                    <!--Right sidebar begin-->
+                    <div class="col-lg-3 col-lg-pull-6" style="top: 100px;">
+                    <!--Countdown Begin-->
+                        <div class="panel with-nav-tabs panel-default embark_effect1" ng-if="selected_promotion.offer_date!=null">
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h4 ng-if="selected_promotion.promo_obj.parent_category_id == 1" class="text-center"><a style="color: #3c3c3c">VALID TILL</a></h4>
+                                <h4 ng-if="selected_promotion.promo_obj.parent_category_id == 3" class="text-center"><a style="color: #3c3c3c">OFFER END DATE</a></h4>
+                                <h4 ng-if="selected_promotion.promo_obj.parent_category_id == 2" class="text-center"><a style="color: #3c3c3c">EVENT DATE</a></h4>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+                                <div  class="tab-content"
+                                      style="padding: 5px; padding: 5px; display: block; margin: 0px auto; font-size: 18px; line-height: 1; color: dodgerblue; width: 88%;">
+                                    <!--<div class="time-to" ng-if="selected_promotion.promo_obj.parent_category_id == 2 || selected_promotion.promo_obj.parent_category_id == 3">-->
+                                        <!--<span class="time" countdown='' date='{{selected_promotion.promo_obj.offer_end_date}}'></span>-->
+                                    <!--</div>-->
+                                    <div ng-bind-html="remainDays" class="discount-date"
+                                         ng-if="(selected_promotion.promo_obj.parent_category_id == 2 || selected_promotion.promo_obj.parent_category_id == 3) && remainDays != null">
+
+                                    </div>
+
+                                    <h3>{{ selected_promotion.offer_date  | date : 'MMMM d, y'}}</h3>
+                                </div>
+
+
+                                
+                                <!--<div class="calender-countdown">-->
+                                <!--<span class="countdown-date"-->
+                                      <!--style="font-size: 52px; min-width: 68px; margin-top: 1px; margin-right: 3px; margin-left: 7px;">{{ selected_promotion.offer_date  | date : 'd'}}</span>-->
+                                <!--<span class="countdown-date">{{ selected_promotion.offer_date  | date : 'MMM'}}</span>-->
+                                <!--<span class="countdown-date">{{ selected_promotion.offer_date  | date : 'y'}}</span>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <!--Countdown end-->
+
+
+                        <!--Company Details begin-->
+                        <div class="panel with-nav-tabs panel-default embark_effect1" ng-if="selected_promotion.promo_obj && selected_promotion.promo_obj.company_id && selected_promotion.promo_obj.company_id != 999999">
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h4 class="text-center"><a style="color: #3c3c3c" href="/company/{{selected_promotion.promo_obj.company_slug}}">{{selected_promotion.promo_company}}</a></h4>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+                                <div class="tab-content" style="padding: 5px">
+                                    <a href="/company/{{selected_promotion.promo_obj.company_slug}}">
+                                        <img ng-if="selected_promotion.promo_company_logo" class="image_shadow margin-bottom-10"
+                                             src="{{selected_promotion.promo_company_logo}}" style="display: block; margin: auto; max-width: 275px;" />
+                                    </a>
+                                    <div class="update-card-body">
+                                        <div style="margin: 5px; background-color: #f5f5f5; border: 1px solid lightgray; border-radius: 2px; padding: 5px" ng-if="selected_promotion.promo_obj.company_tel1" class="text-center row">
+                                            <i style="color: #2F2F2F" class="fa fa-phone fa-fw social_icons_custom"></i> {{selected_promotion.promo_obj.company_tel1}}
+                                        </div>
+
+                                        <div style="margin: 5px; background-color: #f5f5f5; border: 1px solid lightgray; border-radius: 2px; padding: 5px" class="text-center row" ng-if="selected_promotion.promo_obj.company_fb || selected_promotion.promo_obj.company_twitter || selected_promotion.promo_obj.company_linkedin || selected_promotion.promo_obj.company_youtube || selected_promotion.promo_obj.company_instagram">
+                                            <a ng-if="selected_promotion.promo_obj.company_fb" href="{{selected_promotion.promo_obj.company_fb}}"  target="_blank"><i style="cursor: pointer" class="fa fa-facebook-official fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="selected_promotion.promo_obj.company_twitter" href="{{selected_promotion.promo_obj.company_twitter}}"  target="_blank"><i style="cursor: pointer" class="fa fa-twitter fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="selected_promotion.promo_obj.company_linkedin" href="{{selected_promotion.promo_obj.company_linkedin}}"  target="_blank"><i style="cursor: pointer" class="fa fa-linkedin fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="selected_promotion.promo_obj.company_youtube" href="{{selected_promotion.promo_obj.company_youtube}}"  target="_blank"><i style=" cursor: pointer" class="fa fa-youtube fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="selected_promotion.promo_obj.company_instagram" href="{{selected_promotion.promo_obj.company_instagram}}"  target="_blank"><i style="cursor: pointer" class="fa fa-instagram fa-fw social_icons_custom"></i></a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="panel with-nav-tabs panel-default embark_effect1" ng-if="selected_promotion.promo_obj && selected_promotion.promo_obj.company_id && selected_promotion.promo_obj.company_id == 999999">-->
+                            <!--<div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">-->
+                                <!--<h4 class="text-center">{{selected_promotion.promo_obj.company_text}}</h4>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--Company Details begin-->
+
+                        <!--Partner companies begin-->
+                        <div ng-show="partner_companies.length > 0" class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-body margin-top-0 text-center">
+                                <div class="tab-content" style="padding: 0px">
+                                    <div  class="row text-center" style="display: block; margin: auto">
+                                        <div class="col-lg-12 text-center" style="padding: 0px">
+                                            <a href="/company/{{comp.company_id}}"  ng-repeat="comp in partner_companies">
+                                                <div>
+                                                    <img class="img-thumbnail" src="{{logo_path + comp.company_id + '/' + comp.company_logo}}" style="float:left ; border: 1px solid ghostwhite; width: 50px; height: 40px; border-radius: 10px" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Partner companies end-->
+
+                        <!--Categories view begin-->
+                        <div class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h4 class="text-center">{{selected_promotion.promo_obj.parent_category_name}} Categories</h4>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+                                <div class="tab-content" style="padding-top: 10px; padding-bottom: 10px">
+                                    <span ng-if="cat_loading" class="text-center" style="text-align: center; display: block; margin: auto">loading ...</span>
+                                    <div  class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6"  ng-repeat="cat in categories">
+                                            <a href="view_all/{{selected_promotion.promo_obj.parent_category_slug}}/{{cat.category_slug}}">
+                                                <div class=" text-center sub_cat_box embark_effect1">
+                                                    <img src="{{cat.icon}}" /><Br />
+                                                    <p>{{cat.category_name}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Categories view end-->
+
+                    </div>
+                    <!--Right sidebar end-->
+
+                    <!--Related promotions begin-->
+                    <div class="col-lg-3" style="top: 100px;">
+                        <div class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h4 class="text-center">Related Promotions</h4>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+                                <div class="tab-content">
+                                    <span ng-if="related_promo_loading" class="text-center" style="text-align: center; display: block; margin: auto">loading ...</span>
+                                    <span ng-if="rp_count == 0 && !related_promo_loading" class="text-center" style="text-align: center; display: block; margin: auto">No related promotions available!</span>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12"  ng-repeat="ue_promo in related_promotions" data-category="view">
+                                                <div class="promo_box">
+                                                    <div class="promo_image" style="height: 87%">
+                                                        <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                                            <img ng-click="OpenInside(events_promo)" src="{{ue_promo.promo_image}}" class="img-thumbnail" />
+
+                                                            <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                                                <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                                                <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                                                <div class="progress-custom">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                                                        <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </a>
+                                                    </div>
+                                                    <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                                        <div class="promo_heading">
+                                                            <a >{{ue_promo.promo_name}}</a>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--Related promotions end-->
+                </div>
+
+
+                <!--Featured row begin-->
+                <div class="container-fluid">
+                    <div class="row text-center" style="margin-top: 100px">
+                        <h4 class="text-center" style="margin-bottom: 10px">Featured Promotions</h4>
+                        <a  class="" href="/view_all/featured/all"
+                            style="width: 50%;text-align: right;"
+                            ng-if="upcoming_events.length > 0">
+                            <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
+                                    class="btn btn-info">View All </button>
+                        </a>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12"ng-repeat="events_promo in upcoming_events">
+                            <div class="promo_box">
+                                <div class="promo_image text-center">
+                                    <a href="/promotion/{{events_promo.promo_obj.promotion_slug}}">
+                                        <img style="vertical-align: middle; margin-top: auto" ng-click="expand(events_promo)"
+                                             src="{{events_promo.promo_image}}" class="img-responsive" />
+
+                                        <div class="discount-highlight" ng-if="events_promo.is_discount">
+                                            <p class="discount-amount">{{events_promo.discount_text}}</p>
+                                            <p class="discount-usage">{{events_promo.discount_remain}} available  <span>{{events_promo.discount_claimed}} claimed</span></p>
+                                            <div class="progress-custom">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="{{events_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{events_promo.discount_remain_percentage}}%;">
+                                                    <span class="sr-only">{{events_promo.discount_remain_percentage}}0% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                </div>
+
+                                <a href="/promotion/{{events_promo.promo_obj.promotion_slug}}">
+                                    <div ng-click="expand(events_promo)" class="promo_heading text-center">
+                                        <a >{{events_promo.promo_name}}</a>
+                                    </div>
+                                </a>
+                                <div class="promo_bottom">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+                                            <img src="{{events_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                            <img src="{{events_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Featured row end-->
+
+                <!--Recent row begin-->
+                <div class="container-fluid">
+                    <div class="row text-center" style="margin-top: 40px; margin-bottom: 10px">
+                        <h4 class="text-center" style="margin-bottom: 10px">Recent Promotions</h4>
+                        <a  class="" href="/view_all/recent/all"
+                            style="width: 50%;text-align: right;"
+                            ng-if="recent_promo.length > 0">
+                            <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
+                                    class="btn btn-info">View All</button>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="recent_promo in recent_promo">
+                        <div class="promo_box">
+                            <div class="promo_image text-center">
+                                <a href="/promotion/{{recent_promo.promo_obj.promotion_slug}}">
+                                    <img style="vertical-align: middle; margin-top: auto" ng-click="expand(recent_promo)"
+                                         src="{{recent_promo.promo_image}}" class="img-responsive" />
+
+                                    <div class="discount-highlight" ng-if="recent_promo.is_discount">
+                                        <p class="discount-amount">{{recent_promo.discount_text}}</p>
+                                        <p class="discount-usage">{{recent_promo.discount_remain}} available  <span>{{recent_promo.discount_claimed}} claimed</span></p>
+                                        <div class="progress-custom">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{recent_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{recent_promo.discount_remain_percentage}}%;">
+                                                <span class="sr-only">{{recent_promo.discount_remain_percentage}}0% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </div>
+
+                            <a href="/promotion/{{recent_promo.promo_obj.promotion_slug}}">
+                                <div ng-click="expand(recent_promo)" class="promo_heading text-center">
+                                    <a >{{recent_promo.promo_name}}</a>
+                                </div>
+                            </a>
+                            <div class="promo_bottom">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+                                        <img src="{{recent_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                        <img src="{{recent_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+                <!--own company row begin-->
+                <div class="container-fluid" ng-if="company_promotions.length>0" style="margin-bottom: 10px;">
+                    <div class="row text-center" style="margin-top: 40px; margin-bottom: 10px">
+                        <h4 class="text-center" style="margin-bottom: 10px">More Promotions From {{selected_promotion.promo_company}}</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="recent_promo in company_promotions">
+                            <div class="promo_box">
+                                <div class="promo_image text-center">
+                                    <a href="/promotion/{{recent_promo.promo_obj.promotion_slug}}">
+                                        <img style="vertical-align: middle; margin-top: auto" ng-click="expand(recent_promo)"
+                                             src="{{recent_promo.promo_image}}" class="img-responsive" />
+
+                                        <div class="discount-highlight" ng-if="recent_promo.is_discount">
+                                            <p class="discount-amount">{{recent_promo.discount_text}}</p>
+                                            <p class="discount-usage">{{recent_promo.discount_remain}} available  <span>{{recent_promo.discount_claimed}} claimed</span></p>
+                                            <div class="progress-custom">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="{{recent_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{recent_promo.discount_remain_percentage}}%;">
+                                                    <span class="sr-only">{{recent_promo.discount_remain_percentage}}0% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                </div>
+
+                                <a href="/promotion/{{recent_promo.promo_obj.promotion_slug}}">
+                                    <div ng-click="expand(recent_promo)" class="promo_heading text-center">
+                                        <a >{{recent_promo.promo_name}}</a>
+                                    </div>
+                                </a>
+                                <div class="promo_bottom">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+                                            <img src="{{recent_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                            <img src="{{recent_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- <div class="row">
+                    <div class="col-md-12"  style="top: 100px">
+                        <div class="panel with-nav-tabs panel-default embark_effect1" >
+                            <div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h3 class="text-center">Recent Promotions</h3>
+                            </div>
+                            <div class="panel-body margin-top-0 text-center">
+                                <span ng-if="upcoming_events_loading">loading ...</span>
+                                <span ng-if="recent_count == 0 && !upcoming_events_loading"> Sorry no promotions added recently!</span>
+                                <a  ng-if="recent_count > 0 && !upcoming_events_loading" class="margin-top-30" style="font-weight: bold" href="view_all/recent/0/0"> <i style="cursor: pointer" class="fa fa-external-link fa-fw "></i> View All</a>
+                                <div class="tab-content">
+                                    <div class="lp-section-content-container lp-list-grid-section col-md-12" ng-show="recent_count > 0">
+                                        <div class="row">
+
+
+                                            <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="recent_promo in recent_promo">
+                                                <div class="promo_box">
+                                                    <div class="promo_image text-center">
+                                                        <a href="/promotion/{{recent_promo.promo_obj.promotion_slug}}"><img style="vertical-align: middle; margin-top: auto" ng-click="expand(recent_promo)" src="{{recent_promo.promo_image}}" class="img-responsive" /></a>
+                                                    </div>
+
+                                                    <a href="/promotion/{{recent_promo.promo_obj.promotion_slug}}">
+                                                        <div ng-click="expand(recent_promo)" class="promo_heading text-center">
+                                                            <a >{{recent_promo.promo_name}}</a>
+                                                        </div>
+                                                    </a>
+                                                    <div class="promo_bottom">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+                                                                <img src="{{recent_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name">
+                                                                {{recent_promo.promo_views}} Views
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!--Recent row end-->
+            </div>

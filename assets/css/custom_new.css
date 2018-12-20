@@ -1,0 +1,587 @@
+/*--------------------- main global styles begin ---------------------------------------------------*/
+body{
+    background-color: #F5F5F5;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#id_container img{
+    height: 100px;
+}
+
+section{
+    background-color: #F5F5F5;
+    height: 100%;
+}
+
+.embark_effect1{
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.margin_top_15{
+    margin-top:15px
+}
+
+.margin_top_20{
+    margin-top:20px
+}
+
+.margin_bottom_10{
+    margin-bottom:10px
+}
+
+a{
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.social-icons{
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    margin: auto;
+}
+
+.social-icons li{
+    display: inline;
+}
+
+.social_icons_custom{
+    color : #363f48
+}
+
+.navbar  .navbar-brand{
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar  .navbar-brand img{
+    height: 53px ;
+    width: auto;
+    display: block;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+
+/* Center the loader */
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    0% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from { bottom:-500px; opacity:0 }
+    to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+    from{ bottom:-500px; opacity:0 }
+    to{ bottom:0; opacity:1 }
+}
+
+
+.display_none{
+    display: none;
+}
+
+.display_block{
+    display: block;
+}
+/*--------------------- main global styles end -----------------------------------------------------*/
+
+
+
+
+/* --------------------- header section begin ------------------------------------------------------*/
+.intro-header {
+    padding-top: 60px;
+    padding-bottom: 15px;
+    text-align: center;
+    color: black;
+}
+
+.intro-message {
+    color: black;
+    position: relative;
+    padding-bottom: 2%;
+}
+
+.intro-message > img {
+    margin: auto;
+    width: auto;
+    height: 150px;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.intro-message > span {
+    font-size: 1.2em;
+    margin-top: 0px;
+    color: #4d4d4c;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}
+
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 2%;
+    }
+
+    .intro-message > h1 {
+        font-size: 1em;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+
+
+}
+/* ------------------------------------------- header section styles end ---------------------------------------------*/
+
+
+
+
+/*-------------------------------------------- category boxes styles -----------------------------------------*/
+.main_cat_box_home{
+    padding:10px;
+    margin-bottom:20px;
+    background-color:#fff;
+    border:#efefef;
+    border-radius:3px;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+    background:#4c9aed;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2082a0+10,2997db+94,207cca+100,7db9e8+100 */
+    background: rgb(32,130,160); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(32,130,160,1) 10%, rgba(41,151,219,1) 94%, rgba(32,124,202,1) 100%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(32,130,160,1) 10%,rgba(41,151,219,1) 94%,rgba(32,124,202,1) 100%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(32,130,160,1) 10%,rgba(41,151,219,1) 94%,rgba(32,124,202,1) 100%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2082a0', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 3px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+.main_cat_box_home:hover{
+    transform:scale(1.05);
+    z-index:999
+}
+
+.main_cat_box_home h4{
+    font-size:14px;color:#fff
+}
+
+.main_cat_box_home i{
+    font-size:30px;
+    color:white;
+}
+/*-------------------------------------------- category boxes styles -----------------------------------------*/
+
+
+
+
+/*-------------------------------------------- Promotions boxes styles begin ---------------------------------*/
+.promo_box{
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 330px;
+    border: 0px solid;
+    border-radius: 5px;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    padding: 0px;
+}
+
+.promo_box:hover{
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 7px 21px 0 rgba(0, 0, 0, 1);
+}
+
+.promo_box .promo_heading{
+    cursor: pointer;
+    margin: 0px;
+    width: 100%;
+    height: 14.7%;
+    overflow: hidden;
+    padding: 3px;
+    background-color: white;
+
+    vertical-align: middle;
+}
+
+.promo_box .promo_heading a{
+    cursor: pointer;
+    margin-bottom: 2px;
+    font-size: 1.0em;
+    color: #3c3c3c;
+    vertical-align: middle;
+}
+
+.promo_box .promo_image{
+    position: relative;
+    cursor: pointer;
+    margin: 0px;
+    width: 100%;
+    height: 76.3%;
+    position: relative;
+    top: auto;
+    bottom: 0;
+   background-color: #FCFCFC;
+}
+
+.promo_box .promo_image #event_date{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 0px;
+    width: 54px;
+    height: 54px;
+    color: #0D0D0D;
+    background-color: white;
+    border: 1px solid #203540;
+    border-radius: 6px;
+    opacity: 0.9;
+    filter: alpha(opacity=50);
+}
+
+.promo_box .promo_image .event_date{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: auto;
+    margin-bottom: 20%;
+    margin-right: 5%;
+    background-color: red;
+
+}
+
+.promo_box .promo_image img{
+    /*position: absolute;*/
+    cursor: pointer;
+    display: inline-block;
+    margin: auto;
+    top:auto;
+    bottom: 0;
+    width:auto;
+    vertical-align: middle;
+    min-height: 50%;
+    max-height: 100%;
+}
+
+.promo_box .promo_company{
+    margin: 0px;
+    width: 100%;
+    height: 16%;
+    font-size: smaller;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #f5f5f5;
+}
+
+.small_logo_img{
+    width: auto;
+    height: 30px;
+    margin: 3px;
+}
+
+.promo_company_name{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right:15px ;
+    padding-left:15px ;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+}
+
+.promo_bottom{
+    margin: 0px;
+    height: 11%;
+    border-bottom: 0px solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #E8E8E8;
+}
+
+
+@media (max-width: 980px) {
+    .promo_box{
+    height: auto;
+}
+
+    .promo_box .promo_image img{
+    width: 100%;
+    height: auto;
+}
+
+    .promo_box .promo_heading{
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    padding: 5px;
+}
+    #promo_desc{
+        margin-top: 20px;
+        font-size: 1em;
+
+    }
+}
+
+@media (max-width: 780px) {
+    .promo_box .promo_image img{
+        width: auto;
+        height: 244.75px;
+        display: block;
+        margin: auto;
+    }
+
+    .promo_box .promo_heading {
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .promo_box .promo_heading a{
+        cursor: pointer;
+        margin-bottom: 2px;
+        margin-left: 2px;
+        margin-right: 2px;
+        font-size: 1.0em;
+        color: #3c3c3c;
+        vertical-align: middle;
+    }
+
+    #promo_desc{
+        margin-top: 20px;
+        font-size: 1em;
+
+    }
+}
+@media (max-width: 380px) {
+    .promo_box .promo_heading {
+        padding: 5px;
+        height: 50px;
+    }
+}
+
+/*-------------------------------------------- Promotions boxes styles end -----------------------------------*/
+
+
+/*-------------------------------------------- Sub category box styles begin ---------------------------------*/
+.sub_cat_box{
+    width: 100%;
+    float: left;
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 5px;
+    overflow: hidden;
+    font-size: small;
+    background-color: white;
+    border: 0px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #3c3c3c;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 7px 21px 0 rgba(0, 0, 0, 0.4);
+}
+
+.sub_cat_box:hover{
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 7px 21px 0 rgba(0, 0, 0, 1);
+    background: lightskyblue;
+}
+
+.comp_tab_panel{
+    margin-top: 0px;
+}
+
+@media (max-width: 980px) {
+    .sub_cat_box{
+        font-size: 1em;
+    }
+
+    .comp_tab_panel{
+        margin-top: 10px;
+    }
+}
+/*-------------------------------------------- Sub category box styles end -----------------------------------*/
+
+/*-------------------------------------------- Navbar styles begin ------------------------------------------*/
+
+/*-------------------------------------------- Navbar styles end --------------------------------------------*/
+
+.footer {
+    background:#f6f6f6;
+    padding:20px 0;
+}
+.widget h2 {
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    padding-bottom:5px;
+}
+.footer-bottom {
+    background:#d8d8d8;
+    padding:15px 0;
+    border-top:1px solid #d9d9d9;
+    font-size:11px;
+    color:#777;
+}
+
+@media only screen and (max-width: 479px) {
+    .widget_content{
+        display:none;
+    }
+    .active .widget_content{
+        display:inline;
+    }
+    .widget h2 {
+        border-bottom:1px solid #ddd;
+    }
+    .widget h2:after {
+        content:"\203A";
+        color:white;
+        width:20px;
+        height:20px;
+        background:#999;
+        display:inline-block;
+        text-align:center;
+        float:right;
+    }
+    .active.widget h2:after {
+        content:"\2039";
+        background:#ccc;
+    }
+}
+
+.social:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.social {
+    -webkit-transform: scale(0.8);
+    /* Browser Variations: */
+
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+
+#social-fb:hover {
+    color: #3B5998;
+}
+#social-tw:hover {
+    color: #4099FF;
+}
+#social-gp:hover {
+    color: #BBBBBB;
+}
+#social-em:hover {
+    color: #f39c12;
+}
+
+#promo_desc{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+
+}
+
+
+
+
+/*------------------------------------------------- other styles ---------------------------------------------------------*/
+nav{
+    background-color: #E6EAEA;
+}
+
+.panel .panel-heading{
+    background-color: #E6EAEA;
+}
+
+.panel .panel-body{
+    background-color: #ffffff;
+}
+
+.navbar li:hover{
+    background-color: white;
+}
+
+.time-to {
+    text-align: center;
+    font-family: Roboto;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 1px;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 2px solid lightgrey;
+    border-radius: 3px;
+}
+
+.time-to span {
+    padding: 0px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+
+}
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+/*------------------------------------------------- other styles ---------------------------------------------------------*/

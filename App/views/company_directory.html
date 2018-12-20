@@ -1,0 +1,117 @@
+<style>
+    .has-search .form-control-feedback {
+        right: initial;
+        left: 0;
+        color: #ccc;
+    }
+
+    .has-search .form-control {
+        padding-right: 12px;
+        padding-left: 34px;
+    }
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="view_all/promotions/all">Promotions</a></li>
+                <li><a href="view_all/events/all">Events</a></li>
+                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/directory">Companies</a></li>
+                <li><a href="/register/company">Register Free</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-lg-3" style="margin-bottom: 10px;">
+            <h6 class="text-center" style="margin-top: 0px; margin-left: 18px; color: cornflowerblue">Active : {{active | uppercase}}</h6>
+            <ul class="nav nav-pills nav-stacked">
+                <li style="background-color: white"  ng-click="getCompanies('cat')"><a style="color: black"><img style="margin-right: 10px" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIuMDAzIDUxMi4wMDMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMi4wMDMgNTEyLjAwMzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxnPgoJCQk8cGF0aCBkPSJNNTAxLjMzNiwxOTIuMDAxSDI2Ny4yMjFjLTUuODk2LDAtMTAuNjY3LDQuNzcxLTEwLjY2NywxMC42NjdjMCw1Ljg5Niw0Ljc3MSwxMC42NjcsMTAuNjY3LDEwLjY2N2gyMzQuMTE1ICAgICBjNS44OTYsMCwxMC42NjctNC43NzEsMTAuNjY3LTEwLjY2N0M1MTIuMDAzLDE5Ni43NzIsNTA3LjIzMiwxOTIuMDAxLDUwMS4zMzYsMTkyLjAwMXoiIGZpbGw9IiMwMDAwMDAiLz4KCQkJPHBhdGggZD0iTTUwMS4zMzYsMjk4LjY2OEgyNjYuNjY5Yy01Ljg5NiwwLTEwLjY2Nyw0Ljc3MS0xMC42NjcsMTAuNjY3YzAsNS44OTYsNC43NzEsMTAuNjY3LDEwLjY2NywxMC42NjdoMjM0LjY2NyAgICAgYzUuODk2LDAsMTAuNjY3LTQuNzcxLDEwLjY2Ny0xMC42NjdDNTEyLjAwMywzMDMuNDM5LDUwNy4yMzIsMjk4LjY2OCw1MDEuMzM2LDI5OC42Njh6IiBmaWxsPSIjMDAwMDAwIi8+CgkJCTxwYXRoIGQ9Ik01MDEuMzM2LDQwNS4zMzVIMjY2LjY2OWMtNS44OTYsMC0xMC42NjcsNC43NzEtMTAuNjY3LDEwLjY2N2MwLDUuODk2LDQuNzcxLDEwLjY2NywxMC42NjcsMTAuNjY3aDIzNC42NjcgICAgIGM1Ljg5NiwwLDEwLjY2Ny00Ljc3MSwxMC42NjctMTAuNjY3QzUxMi4wMDMsNDEwLjEwNSw1MDcuMjMyLDQwNS4zMzUsNTAxLjMzNiw0MDUuMzM1eiIgZmlsbD0iIzAwMDAwMCIvPgoJCQk8cGF0aCBkPSJNMjY2LjY2OSwxMDYuNjY4aDIzNC42NjdjNS44OTYsMCwxMC42NjctNC43NzEsMTAuNjY3LTEwLjY2N3MtNC43NzEtMTAuNjY3LTEwLjY2Ny0xMC42NjdIMjY2LjY2OSAgICAgYy01Ljg5NiwwLTEwLjY2Nyw0Ljc3MS0xMC42NjcsMTAuNjY3UzI2MC43NzMsMTA2LjY2OCwyNjYuNjY5LDEwNi42Njh6IiBmaWxsPSIjMDAwMDAwIi8+CgkJCTxwYXRoIGQ9Ik0xNDUuMDY1LDI0Ny40N2wtMTI4LTk2Yy00LjY4OC0zLjUxLTExLjM4NS0yLjU4My0xNC45MjcsMi4xMzVjLTMuNTQyLDQuNzA4LTIuNTgzLDExLjM5NiwyLjEzNSwxNC45MjdsMTE2LjYxNSw4Ny40NjkgICAgIEw0LjI3MywzNDMuNDdjLTQuNzE5LDMuNTMxLTUuNjc3LDEwLjIxOS0yLjEzNSwxNC45MjdjMi4wOTQsMi44MDIsNS4yOTIsNC4yNzEsOC41NDIsNC4yNzFjMi4yMjksMCw0LjQ2OS0wLjY5OCw2LjM4NS0yLjEzNSAgICAgbDEyOC05NmMyLjY4OC0yLjAxLDQuMjcxLTUuMTc3LDQuMjcxLTguNTMxQzE0OS4zMzYsMjUyLjY0NywxNDcuNzUzLDI0OS40OCwxNDUuMDY1LDI0Ny40N3oiIGZpbGw9IiMwMDAwMDAiLz4KCQkJPHBhdGggZD0iTTIwMi42NjksNjQuMDAxYy01Ljg5NiwwLTEwLjY2Nyw0Ljc3MS0xMC42NjcsMTAuNjY3djM2Mi42NjdjMCw1Ljg5Niw0Ljc3MSwxMC42NjcsMTAuNjY3LDEwLjY2NyAgICAgYzUuODk2LDAsMTAuNjY3LTQuNzcxLDEwLjY2Ny0xMC42NjdWNzQuNjY4QzIxMy4zMzYsNjguNzcyLDIwOC41NjUsNjQuMDAxLDIwMi42NjksNjQuMDAxeiIgZmlsbD0iIzAwMDAwMCIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" /></i> ALL</a></li>
+                <li ng-repeat="cat in categories"  ng-click="getCompanies('cat', cat)" style="background-color: white; margin-top: 10px"><a style="color: black"><img src="{{cat.icon}}" style="margin-right: 5px">  <span>{{cat.category_name | uppercase}}</span></a></li>
+
+            </ul>
+        </div>
+        <div class="col-lg-9">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group has-feedback has-search">
+                        <span class="glyphicon glyphicon-search form-control-feedback" style="width: 48px;top: 8px;line-height: 36px;padding-right: 3px;"></span>
+                        <input type="text" class="form-control input-lg"
+                               ng-change="getCompanies('search')"
+                               ng-model="search"
+                               ng-model-options='{ debounce: 500 }'
+                               style="height: 50px;" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-12"  ng-if="companies.length==0">
+
+                    <div class="alert alert-warning">
+                        <strong>Sorry !</strong> No companies found. Please change your search filters.
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"  ng-repeat="comp in companies">
+                    <a href="/company/{{comp.company_slug}}">
+                        <div class="panel with-nav-tabs panel-default embark_effect1" style="max-height: 279px">
+                            <!--<div class="panel-heading" style="padding-top: 5px; padding-bottom: 8px">
+                                <h4 class="text-center"><a style="color: #3c3c3c" href="/company/{{comp.company_slug}}">{{comp.company_name}}</a></h4>
+                            </div>-->
+                            <div class="panel-body margin-top-0 text-center">
+                                <div class="tab-content" style="padding: 5px;">
+                                    <a href="/company/{{comp.company_slug}}" style="margin-top: 10px; top: auto; bottom: 0px">
+                                        <img ng-if="comp.company_logo" class="image_shadow margin-bottom-10"
+                                             src="{{logo_path + comp.company_id + '/' + comp.company_logo}}"
+                                             style="display: block; margin: auto; width: auto; height: 60px; max-width: 100px" /></a>
+                                    <div style="height: 60px" ng-if="!comp.company_logo"></div>
+                                    <div class="update-card-body" style="padding: 3px;margin-top: 10px">
+                                        <div style="font-size:13px; height: 40px" class="text-center row">
+                                            {{comp.company_name | limitTo : 25}}
+                                        </div>
+
+                                        <div style="background-color: #f5f5f5; border: 1px solid lightgray; border-radius: 2px; padding: 3px;" class="text-center row" ng-if="comp.company_fb || comp.company_twitter || comp.company_linkedin || comp.company_youtube || comp.company_instagram">
+                                            <a ng-if="comp.company_fb" href="{{comp.company_fb}}"  target="_blank"><i style="cursor: pointer" class="fa fa-facebook-official fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="comp.company_twitter" href="{{comp.company_twitter}}"  target="_blank"><i style="cursor: pointer" class="fa fa-twitter fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="comp.company_linkedin" href="{{comp.company_linkedin}}"  target="_blank"><i style="cursor: pointer" class="fa fa-linkedin fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="comp.company_youtube" href="{{comp.company_youtube}}"  target="_blank"><i style="cursor: pointer" class="fa fa-youtube fa-fw social_icons_custom"></i></a>
+                                            <a ng-if="comp.company_instagram" href="{{comp.company_instagram}}"  target="_blank"><i style="cursor: pointer" class="fa fa-instagram fa-fw social_icons_custom"></i></a>
+                                        </div>
+
+                                        <div style="height: 28px" ng-if="!comp.company_fb && !comp.company_twitter && !comp.company_linkedin && !comp.company_youtube && !comp.company_instagram"></div>
+                                        <!--<div style="margin-top: 2px; background-color: #f5f5f5; border: 1px solid lightgray; border-radius: 2px; padding: 2px" class="text-center row">-->
+                                            <!--<h6><i class="fa fa-eye fa-fw social_icons_custom"></i> {{comp.views}}</h6>-->
+                                        <!--</div>-->
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

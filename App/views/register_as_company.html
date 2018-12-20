@@ -1,0 +1,235 @@
+<style>
+    .video-container {
+        position:relative;
+        padding-bottom:56.25%;
+        padding-top:30px;
+        height:0;
+        overflow:hidden;
+    }
+
+    .video-container iframe, .video-container object, .video-container embed {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+</style>
+<nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="view_all/promotions/all">Promotions</a></li>
+                <li><a href="view_all/events/all">Events</a></li>
+                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/directory">Companies</a></li>
+                <li><a href="/register/company">Register Free</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3 class="text-center">Register your business with us</h3> <br />
+            <div ng-if="sucess"  class="alert alert-success text-center">{{success_message}}</div>
+            <div ng-if="error" class="alert alert-danger text-center">{{error_message}}</div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" name="from_company">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="sel1">Category :</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="sel1" ng-model="c_cat" name="comp_cat" required>
+                            <option >Select Category</option>
+                            <option value="{{cat.category_id}}" ng-repeat="cat in categories">{{cat.category_name}}</option>
+                        </select>
+                        <!--Error Messages-->
+                        <div ng-if="from_company.comp_cat.$dirty" ng-messages="from_company.comp_cat.$error" role="alert">
+                            <div style="color: red" ng-message="required"> Company category is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Name :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="email" placeholder="Company name" ng-model="name" required name="name">
+                        <div ng-if="from_company.name.$dirty" ng-messages="from_company.name.$error" role="alert">
+                            <div style="color: red" ng-message="required"> Company name is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="desc">Description :</label>
+                    <div class="col-sm-9">
+                        <textarea  class="form-control" id="desc" placeholder="Company description" ng-model="desc"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="addr">Address :</label>
+                    <div class="col-sm-9">
+                        <textarea  class="form-control" id="addr" placeholder="Company address" ng-model="address"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="mail">Email :</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="mail" placeholder="Company email" ng-model="email" name="email">
+                        <div ng-if="from_company.email.$dirty" ng-messages="from_company.email.$error" role="alert">
+                            <div style="color: red" ng-message="email"> Invalid Email</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="web">Website :</label>
+                    <div class="col-sm-9">
+                        <input type="url" class="form-control" id="web" placeholder="Company website (Optional)" ng-model="website" name="url">
+                        <div ng-if="from_company.url.$dirty" ng-messages="from_company.url.$error" role="alert">
+                            <div style="color: red" ng-message="url"> Invalid URL</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="logo">Logo :</label>
+                    <div class="col-sm-9">
+                        <input type="file" name="image" class="form-control" id="logo" placeholder="Company logo" ng-model="image" gf-max-size="'2MB'"  ngf-resize="{width: 200, height: 100}"  ngf-select="selected_signed_file = image ? image : selected_signed_file">
+                        <div ng-if="from_company.image.$dirty" ng-messages="from_company.image.$error" role="alert">
+                            <div style="color: red" ng-message="required"> Company logo is required</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="mob">Mobile no :</label>
+                    <div class="col-sm-9">
+                        <input type="tel" class="form-control" id="mob" ng-model="tel1" ng-intl-tel-input name="contact_person_tel_no" required minlength="9" maxlength="9">
+                        <div ng-if="from_company.contact_person_tel_no.$dirty && from_company.contact_person_tel_no.$invalid" ng-messages="from_company.contact_person_tel_no.$error" role="alert">
+                            <div style="color: red" ng-message="required">Mobile no is required</div>
+                            <div style="color: red" ng-message="tel">Invalid phone number</div>
+                            <div style="color: red" ng-message="minlength">Invalid phone number</div>
+                            <div style="color: red" ng-message="ngIntlTelInput">Invalid phone number</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="land">Land no :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="land" name="land_no" ng-model="tel2" ng-intl-tel-input minlength="9" maxlength="9">
+                        <div ng-if="from_company.land_no.$dirty && from_company.land_no.$invalid" ng-messages="from_company.land_no.$error" role="alert" >
+                            <div style="color: red" ng-message="tel">Invalid phone number</div>
+                            <div style="color: red" ng-message="minlength">Invalid phone number</div>
+                            <div style="color: red" ng-message="ngIntlTelInput">Invalid phone number</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="fb">Facebook :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="fb" placeholder="Paste facebook URL here" ng-model="fb">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="it">Instagram :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="it" placeholder="Paste instagram URL here" ng-model="instagram">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="twitter">Twitter :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="twitter" placeholder="Paste twitter URL here" ng-model="twitter">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="ln">LinkedIn :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="ln" placeholder="Paste linkedin URL here" ng-model="linkedin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="yt">Youtube :</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="yt" placeholder="Paste youtube URL here" youtube>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button ng-click="registerAsCompany()" class="btn btn-primary" ng-disabled="onSubmit">Submit for review</button>
+                        <button ng-click="resetAll()"  class="btn btn-default" ng-disabled="onSubmit">Reset</button>
+                        <a href="/register" class="btn btn-default" ng-disabled="onSubmit">Back</a>
+                    </div>
+                </div>
+        </div>
+    </form>
+    </div>
+
+
+    <div class="container">
+        <div class="">
+            <h3 class=" text-center">What is findit.lk?</h3>
+            <p class="text-justify" style="font-size: 17px;">
+                We are a business that is passionate about connecting consumers and businesses.
+                We aim to provide consumers latest details on Promotions, discounts, events & many more
+                taking place across Sri Lanka.</p>
+        </div>
+
+        <div class="">
+            <h3 class=" text-center">Why Findit.lk</h3>
+            <p class="text-justify" style="font-size: 17px;">There are so many websites and facebook pages but the difficult part
+                is to get right online customers to your website & facebook page. Findit.lk platform will allow
+                you to find your business easily for expected target audience and we are here to develop
+                your business digitally for lifetime.</p>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <ul>
+                    <li>Increase Online Sales & Leads</li>
+                    <li>Increase online Brand Visibility</li>
+                    <li>Increase Brand Awareness</li>
+                    <li>Increase Website Traffic</li>
+                    <li>Increase Social Media Reach</li>
+                    <li>Increase Google Ranking</li>
+                    <li>Increase Facebook Likes & Comments</li>
+                    <li>Find New Customers</li>
+                    <li>365 Days Online Appearance For Your Business</li>
+                    <li>Make Your Business Findable</li>
+                    <li>High ROI</li>
+                    <li>Digital Marketing Consultation</li>
+                    <li>24/7 Expert Support</li>
+                    <li>Direct E-campaigns</li>
+                    <li>Facebook/Instagram advertising</li>
+                    <li>SMS campaigns</li>
+                    <li>Google ads</li>
+                    <li>SEO campaigns</li>
+                    <li>Daily E-campaigns footer ads</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 30px;">
+                <div class="video-container"><iframe width="853" height="480"
+                                                     src="https://www.youtube.com/embed/x-hBmaez9m4" frameborder="0"
+                                                     gesture="media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

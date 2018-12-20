@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" ng-controller="MainController" ng-app="app">
+<head>
+    <base href="/">
+    <meta name="fragment" content="!">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/fav_icon.png" type="image/x-icon" />
+    <meta name="google-site-verification" content="rt3O2b6bqwQYxvjU81oqNUhG4O7iu1m-sLDsCCmNAGg" />
+
+    <!------------------------------------ Seo friendly tags ---------------------------------------->
+    <!--<title ng-bind="metaInformation.title"></title>-->
+    <!--<meta name="description" content="{{metaInformation.description}}">-->
+    <!--<meta name="keywords" content="{{metaInformation.keywords}}">-->
+
+    <!--<meta property="og:title"  content="{{metaInformation.title}}" />-->
+    <!--<meta property="og:description"  content="{{metaInformation.description}}" />-->
+    <!--<meta property="og:image"  content="{{metaInformation.image}}" />-->
+    <!--<meta property="og:url" content="{{metaInformation.url}}" />-->
+    <!--<meta property="og:type" content="website" />-->
+
+    <!--<meta name="twitter:card" content="summary">-->
+    <!--<meta name="twitter:title" content="{{metaInformation.title}}">-->
+    <!--<meta name="twitter:description" content="{{metaInformation.description}}">-->
+    <!--<meta name="twitter:image" content="{{metaInformation.image}}">-->
+    <!--<meta name="twitter:site" content="@findit">-->
+    <!--<meta name="twitter:creator" content="@findit" />-->
+    <!--<meta name="twitter:url" content="{{metaInformation.url}}" />-->
+    <!------------------------------------ Seo friendly tags ---------------------------------------->
+
+    <!------------------------------------ Seo friendly tags ---------------------------------------->
+    <title ng-bind="metaInformation.title" class="ng-binding">Findit.lk</title>
+    <meta name="description" content="Findit.lk is an online information hub which provide the latest details on promotions, discounts and events taking place across Sri Lanka.Also this platform helps to grow any business using digital marketing tools.In the findit.lk database, you will find registered companies from major industries of which you can now hunt for the best deal available out there on your expected product or service and also compare prices amongst each other. This way, through findit.lk, you are bound to find for yourself, for whichever requirement, the best deal that money can buy! If you register with findit.lk, you will receive exclusive offers and the best deals in town, courtesy of our partner companies that are registered with us.">
+    <meta name="keywords" content="Promotions In Sri Lanka, Discounts in srilanka, Events in sri lanka, Companies in sri lanka, deals in srilanka,offers in sri lanka, online business sri lanka, How to promote business online, Directory Sri lanka, Business in srilanka, Web Advertising sri lanka, Online advertising">
+
+    <meta property="og:title" content="Findit.lk">
+    <meta property="og:description" content="Findit.lk is an online information hub which provide the latest details on promotions, discounts and events taking place across Sri Lanka.Also this platform helps to grow any business using digital marketing tools.In the findit.lk database, you will find registered companies from major industries of which you can now hunt for the best deal available out there on your expected product or service and also compare prices amongst each other. This way, through findit.lk, you are bound to find for yourself, for whichever requirement, the best deal that money can buy! If you register with findit.lk, you will receive exclusive offers and the best deals in town, courtesy of our partner companies that are registered with us.">
+    <meta property="og:image" content="http://findit.lk/assets/images/logo.jpg">
+    <meta property="og:url" content="http://findit.lk/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Findit.lk">
+    <meta name="twitter:description" content="Findit.lk is an online information hub which provide the latest details on promotions, discounts and events taking place across Sri Lanka.Also this platform helps to grow any business using digital marketing tools.In the findit.lk database, you will find registered companies from major industries of which you can now hunt for the best deal available out there on your expected product or service and also compare prices amongst each other. This way, through findit.lk, you are bound to find for yourself, for whichever requirement, the best deal that money can buy! If you register with findit.lk, you will receive exclusive offers and the best deals in town, courtesy of our partner companies that are registered with us.">
+    <meta name="twitter:image" content="http://findit.lk/assets/images/logo.jpg">
+    <meta name="twitter:site" content="@findit">
+    <meta name="twitter:creator" content="@findit">
+    <meta name="twitter:url" content="http://findit.lk/">
+    <!------------------------------------ Seo friendly tags ---------------------------------------->
+
+
+
+    <!------------------------------------ Style Dependencies Begin ---------------------------------------->
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css" />
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link type="text/css" rel="stylesheet" href="assets/css/custom.css" />
+    <link type="text/css" rel="stylesheet" href="assets/third_party/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-treasure-overlay-spinner/dist/treasure-overlay-spinner.min.css" />
+
+    <!------------------------------------ Style Dependencies End ------------------------------------------>
+
+    <!------------------------------------ Angular Dependencies Begin -------------------------------------->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/intl-tel-input/build/js/intlTelInput.js"></script>
+    <script type="text/javascript" src="bower_components/intl-tel-input/build/js/utils.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="bower_components/angular-treasure-overlay-spinner/dist/treasure-overlay-spinner.min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-intl-tel-input/dist/ng-intl-tel-input.js"></script>
+    <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script type="text/javascript" src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDJDk1j_2noAGhsRKyi_0_xPbXPkqJ73uA"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-sanitize.js"></script>
+
+    <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="bower_components/angular-moment/angular-moment.js"></script>
+
+    <script type="text/javascript" src="assets/js/dist/ng-image-gallery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="assets/js/dist/ng-image-gallery.min.css" />
+    <!------------------------------------ Angular Dependencies End ---------------------------------------->
+
+    <!------------------------------------ App Files Begin  ------------------------------------------------>
+    <script type="text/javascript" src="App/app.js"></script>
+    <script type="text/javascript" src="App/env.js"></script>
+    <script type="text/javascript" src="App/global.js"></script>
+    <script type="text/javascript" src="App/route.js"></script>
+
+    <script type="text/javascript" src="App/resources/CategoryResource.js"></script>
+    <script type="text/javascript" src="App/resources/ParentCategoriesResource.js"></script>
+    <script type="text/javascript" src="App/resources/PromotionsResource.js"></script>
+    <script type="text/javascript" src="App/resources/PromotionViewsResource.js"></script>
+    <script type="text/javascript" src="App/resources/ReviewResource.js"></script>
+    <script type="text/javascript" src="App/resources/AddReviewResource.js"></script>
+    <script type="text/javascript" src="App/resources/PartnerCompaniesResource.js"></script>
+    <script type="text/javascript" src="App/resources/CompanyResource.js"></script>
+    <script type="text/javascript" src="App/resources/CompanyViewsResource.js"></script>
+    <script type="text/javascript" src="App/resources/CustomerResource.js"></script>
+    <script type="text/javascript" src="App/resources/CustomerInterestsResource.js"></script>
+    <script type="text/javascript" src="App/resources/PromotionCouponResource.js"></script>
+
+    <script type="text/javascript" src="App/services/CategoryService.js"></script>
+    <script type="text/javascript" src="App/services/PromotionService.js"></script>
+    <script type="text/javascript" src="App/services/CompanyService.js"></script>
+    <script type="text/javascript" src="App/services/CustomerService.js"></script>
+
+    <script type="text/javascript" src="App/controllers/MainController.js"></script>
+    <script type="text/javascript" src="App/controllers/HomePageController.js"></script>
+    <script type="text/javascript" src="App/controllers/HomeDemoPageController.js"></script>
+    <script type="text/javascript" src="App/controllers/ExpandPageController.js"></script>
+    <script type="text/javascript" src="App/controllers/CompanyPageController.js"></script>
+    <script type="text/javascript" src="App/controllers/ViewAllPageController.js"></script>
+    <script type="text/javascript" src="App/controllers/RegisterController.js"></script>
+    <script type="text/javascript" src="App/controllers/DirecotryController.js"></script>
+    <script type="text/javascript" src="App/controllers/ContactUsController.js"></script>
+    <!------------------------------------ App Files End --------------------------------------------------->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127331338-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127331338-1');
+    </script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104667275-1', 'auto');
+        ga('send', 'pageview');
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <!--<div  id="loader" ng-if="!loaded"></div>-->
+
+    <ng-view autoscroll="true">
+    </ng-view>
+
+</body>
+</html>

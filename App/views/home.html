@@ -1,0 +1,968 @@
+<style>
+    .event-date {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        float: left;
+        padding: 0px 0;
+        width: 48px;
+        text-align: center;
+        text-transform: uppercase;
+        background: #fff;
+        border: 2px solid #eeeeee;
+    }
+
+    .event-date .event-day {
+        display: block;
+        margin: 0 0 0px 0;
+        font-size: 29px;
+        line-height: 1;
+        color: #6690ff;
+    }
+
+    .event-date .event-month {
+        font-size: 11px;
+        color: #000;
+        font-weight: 700;
+    }
+
+    .discount-date {
+        position: absolute;
+        bottom: 0px;
+        left: 6px;
+        float: left;
+        padding: 6px 0px 0px 0px;
+        width: 100px;
+        text-align: center;
+        text-transform: uppercase;
+        background: #6690ff;
+        height: 40px;
+    }
+
+    .discount-date .discount-day {
+        display: block;
+        margin: 0 0px 0px 6px;
+        font-size: 28px;
+        line-height: 1;
+        color: #ffffff;
+        width: 100%;
+        text-align: left;
+    }
+
+    .discount-date .discount-day span{
+        margin: 0px 0px 0px 0px;
+        font-size: 9px;
+        line-height: 1;
+        color: #ffffff;
+        width: 100%;
+        text-align: left;
+        padding: 5px;
+        position: absolute;
+    }
+
+    .discount-date .discount-day p{
+        font-size: 13px;
+        color: #ffffff;
+        position: absolute;
+        margin-left: 4px;
+        bottom: 3px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .blink_me {
+        -webkit-animation-name: blinker;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+
+        -moz-animation-name: blinker;
+        -moz-animation-duration: 1s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+
+        animation-name: blinker;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @-moz-keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+
+    .fit-header {
+        padding-bottom: 90px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .fit-home-slider-img {
+        width: 100%;
+    }
+
+    .fit-home-slider {
+        min-height: 400px;
+    }
+
+    .wellhome {
+        background-color: #fff;
+        -webkit-box-shadow: none;
+        transition: all .2s ease-in-out;
+        padding: 10px;
+        margin-bottom: 17px;
+        border: #efefef;
+        border-radius: 1px;
+        background: -moz-linear-gradient(top, rgba(32,130,160,1) 10%, rgba(41,151,219,1) 94%, rgba(32,124,202,1) 100%, rgba(125,185,232,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2082a0', endColorstr='#7db9e8',GradientType=0 );
+        box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.4), 0 1px 6px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    .wellhome:hover {
+        transform: scale(1.05);
+        z-index: 999;
+    }
+
+    .full-width-container {
+        width: 97%;
+    }
+
+    .navbar-right {
+        float: right !important;
+        margin-right: 20px;
+    }
+
+    .special-heading {
+        height: 30px;
+        margin-bottom: 5px;
+        padding-left: 0px;
+        border-radius: 1px;
+        margin-top: 5px;
+    }
+
+    .special-heading p {
+        padding: 5px;
+        font-weight: 700;
+        font-size: 17px;
+    }
+
+    .special-heading a {
+        /* color: #ffffff; */
+        font-size: 14px;
+        margin-top: 0px;
+        padding-top: 0px;
+        /* position: absolute; */
+        float: right;
+    }
+
+    .special-heading a .btn {
+        display: inline-block;
+        padding: 6px 6px 4px 8px;
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.428571;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 3px;
+    }
+
+    .special-heading p a {
+        /*color: #ffffff;*/
+        font-size: 13px;
+        margin-top: 0px;
+        padding-top: 4px;
+        position: absolute;
+        float: left;
+        margin-left: 17px;
+        font-weight: 100;
+    }
+
+    .fit-h4-top-cat {
+        font-size: 14px;
+        color: #000;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 2px;
+    }
+
+    @media handheld, only screen and (max-width: 767px) {
+        .navbar-logo img {
+            float: left;
+            max-width: 150px;
+            transition: all .5s ease-out;
+        }
+    }
+
+    .fit-company-panel {
+        border-radius: 1px;
+    }
+
+    .fit-company-panel-body {
+        padding: 1px;
+    }
+
+    .nav-pills li a {
+        border-radius: 2px;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 45px;
+        padding: 8px 55px 10px 20px;
+        font-size: 15px;
+    }
+
+    .btn-default {
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+        height: 45px;
+    }
+
+    .form-group {
+        margin-right: 10px;
+    }
+
+    .full-width-container-padding {
+        padding-top: 65px;
+    }
+
+
+    @media handheld, only screen and (min-width: 1200px) {
+        .col-lg-1 {
+            width: 6.25%;
+        }
+    }
+
+    @media handheld, only screen and (min-width: 768px) {
+        .navbar-nav > li > a {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 5px;
+        }
+
+        .full-width-container-padding{
+            padding-top: 110px;
+        }
+    }
+
+    @media handheld, only screen and (min-width: 1024px) {
+        .full-width-container-padding{
+            padding-top: 65px;
+        }
+    }
+
+    .discount-highlight {
+        background-color: #000000;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        opacity: 0.75;
+        font-family: Verdana, Geneva, sans-serif;
+        color: #FFF;
+        bottom: 0px;
+        z-index: 1000;
+    }
+
+    .progress-custom {
+        height: 7px;
+        margin-bottom: 0px;
+        overflow: hidden;
+        background-color: #a09696;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .discount-amount {
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 8px;
+        margin-bottom: 3px;
+        font-size: 17px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage {
+        color: #13f103;;
+        text-align: left;
+        margin-left: 15px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: OpenSans, "Open Sans", Arial, Helvetica, sans-serif, SimSun, 宋体;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .discount-usage span {
+        float: right;
+        margin-right: 15px;
+        color: #a09696;
+    }
+
+    .progress-custom .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #13f103;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+
+
+</style>
+
+<div id="page">
+    <treasure-overlay-spinner active='main_loader'>
+
+
+        <nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img src="/assets/images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="view_all/promotions/all">Promotions</a></li>
+                        <li><a href="view_all/events/all">Events</a></li>
+                        <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                        <li><a href="/directory">Companies</a></li>
+                        <li><a href="/register/company">Register Free</a></li>
+                        <li><a href="/about_us">About Us</a></li>
+                        <li><a href="/contact_us">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container full-width-container full-width-container-padding" >
+            <div class="row">
+                <div class="col-md-9 col-sm-12 col-xs-12 fit-home-slider">
+                <!--<img class="fit-home-slider-img" src="http://find-me-api.dev/images/home/1.jpg">-->
+
+
+                    <div id="findit" data-ride="carousel" data-interval="3000">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#findit" ng-class="($index==0)?'active':''"
+                                data-slide-to="{{$index}}"  ng-repeat="banner in banners"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item" ng-class="($index==0)?'active':''" ng-repeat="banner in banners">
+                                <a ng-href="{{ banner.url}}" target="_blank">
+                                    <img title="{{ banner.title}}" ng-src="{{ banner.banner}}"
+                                         class="img-responsive" alt="{{ banner.title}}">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" data-target="#findit" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" data-target="#findit" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                    <!-- Top Parent category begin -->
+
+                        <div class="clearfix"></div>
+                        <div class="row margin_top_15">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="row ripple-effect">
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 ">
+                                        <a href="view_all/promotions/all">
+                                            <div class="main_cat_box_home text-center embark_effect1">
+                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTEuOTk5IDUxMS45OTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMS45OTkgNTExLjk5OTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxjaXJjbGUgY3g9IjI1NS4yMDUiIGN5PSI4Ny43ODMiIHI9IjQwLjc0MiIgZmlsbD0iI0ZGRkZGRiIvPgoJPC9nPgo8L2c+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQxOC45OTEsODcuODgxdi04LjcwOWMwLTQuMzM3LTQuMDM1LTcuNTU3LTguMjY1LTYuNTkybC02NC4xMDYsMTQuNjE5QzM0Ni4yMiw4NC4yNjcsMzQzLjczMiw4MiwzNDAuNjksODJoLTE4LjIxNSAgICBjLTMuMzIxLDAtNi4wMTMsMi42OTItNi4wMTMsNi4wMTN2Ni41MjdjLTYuNzUsMC0xMi4yMjEsNS40NzItMTIuMjIxLDEyLjIyMWMwLDYuNzUsNS40NzIsMTIuMjIxLDEyLjIyMSwxMi4yMjF2Ni41MjYgICAgYzAsMy4zMjEsMi42OTIsNi4wMTMsNi4wMTMsNi4wMTNoMTEuNTM0bDguMDQ5LDI2Ljc0OGwtMTMuNTUsMjcuNDhsLTM0Ljk4NC0zOS40MDhjLTIuOTc3LTMuMzUyLTcuMjQ2LTUuMjcyLTExLjczLTUuMjcyaC03Ni45MzUgICAgbC01NC44OTQtNDMuNTVMMTA3LjYxOSw5Ljk1NGMtNC4yMzctOC43NjItMTQuNzc0LTEyLjQyOC0yMy41MzUtOC4xOTJjLTguNzYyLDQuMjM3LTEyLjQyOSwxNC43NzQtOC4xOTIsMjMuNTM1bDQ0LjExLDkxLjIxMiAgICBjMS4xNjEsMi40MDEsMi44NTIsNC41MDYsNC45NDMsNi4xNThsNjEuMDA1LDQ4LjE2OHYxMjQuMjMxbC0xNy45NTEsODIuMzQybC01NC43LDk5LjgwMSAgICBjLTYuMjM2LDExLjM3OS0yLjA2OCwyNS42NTksOS4zMTEsMzEuODk2YzExLjM4Miw2LjIzNywyNS42NjIsMi4wNjUsMzEuODk2LTkuMzExbDU2LjMzLTEwMi43NzUgICAgYzEuMDgxLTEuOTcyLDEuODczLTQuMDksMi4zNTItNi4yODdsMTQuMjYtNjUuNDExaDIxLjM2bDE3LjY4LDYyLjAwNWwtMi44MDUsMTAwLjUyYy0wLjM2OCwxMy4xOTksMTAuMjIxLDI0LjE1MSwyMy40OTgsMjQuMTUxICAgIGMxMi42NzEtMC4wMDEsMjMuMTE4LTEwLjA5MiwyMy40NzQtMjIuODM5bDIuOTA3LTEwNC4xMzljMC4wNjctMi4zOTktMC4yMzQtNC43OTMtMC44OTEtNy4wOTlsLTIyLjU5NS03OS4yMzhWMTk1LjA1ICAgIGwyOS4wMzQsMzMuOTFjOC4xOTYsOS41NzUsMjMuNTg5LDcuNjkxLDI5LjE5LTMuNjY3bDE0LjIyMS0yOC44NDFjMS43MTIsMC4xMzQsMy4zNjQtMC4wNjUsNC45Mi0wLjUzMSAgICBjNy4xMTYtMi4xNDMsMTEuMTUtOS42NDcsOS4wMDktMTYuNzY1bC0yLjA0Ny02LjgwMWw5LjAzNS0xOC4zMjJjMy4zODEtNi44NTksMS44NzUtMTQuODM3LTMuMTUyLTIwLjAzNmwzMC40MzgsNi45NDEgICAgYzQuMjI4LDAuOTY1LDguMjY1LTIuMjUzLDguMjY1LTYuNTkydi04LjcwOWMxMC40MywwLDE4Ljg4MS04LjQ1MiwxOC44ODEtMTguODc4QzQzNy44NjksOTYuMzMzLDQyOS40MTcsODcuODgxLDQxOC45OTEsODcuODgxeiIgZmlsbD0iI0ZGRkZGRiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                                                <h4 class="fit-h4-top-cat">Promotions</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 ">
+                                        <a href="view_all/events/all">
+                                            <div class="main_cat_box_home text-center embark_effect1">
+                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDYxMiA2MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYxMiA2MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8Zz4KCQk8Zz4KCQkJPGc+CgkJCQk8Zz4KCQkJCQk8cGF0aCBkPSJNNDc5LjgwOCwzMjYuNTE5Yy03My4wMiwwLTEzMi4yMjgsNTkuMjI3LTEzMi4yMjgsMTMyLjIyOWMwLDcyLjk4Myw1OS4yMDgsMTMyLjE3NCwxMzIuMjI4LDEzMi4xNzQgICAgICAgYzcyLjk4NCwwLDEzMi4xOTItNTkuMTksMTMyLjE5Mi0xMzIuMTc0QzYxMiwzODUuNzQ1LDU1Mi43OTIsMzI2LjUxOSw0NzkuODA4LDMyNi41MTl6IE00ODguMjkyLDU1Ni40Njl2LTExLjQxNSAgICAgICBjMC00LjcyMi0zLjgwOC04LjUzOC04LjQ4NC04LjUzOGMtNC43MjIsMC04LjUyMSwzLjgyNi04LjUyMSw4LjUzOHYxMS40MTVjLTQ3LjM0MS00LjA3LTg1LjE1OC00MS44OTYtODkuMjI5LTg5LjIyOWgxMS40NTEgICAgICAgYzQuNjc3LDAsOC41MDItMy44MDksOC41MDItOC40ODRjMC00Ljc1OC0zLjgyNS04LjUyMS04LjUwMi04LjUyMWgtMTEuNDUxYzQuMDctNDcuMzUxLDQxLjg5Ni04NS4xNCw4OS4yMjktODkuMjI5djExLjQzMyAgICAgICBjMCw0LjcwNCwzLjgwOSw4LjUyMSw4LjUyMSw4LjUyMWM0LjY3NywwLDguNDg0LTMuODI2LDguNDg0LTguNTIxdi0xMS40MzNjNDcuMzU5LDQuMDg5LDg1LjE3Nyw0MS44NzgsODkuMjI5LDg5LjIyOWgtMTEuNDUxICAgICAgIGMtNC43MDMsMC04LjUwMiwzLjc3MS04LjUwMiw4LjUyMWMwLDQuNjg2LDMuODA4LDguNDg0LDguNTAyLDguNDg0aDExLjQ1MUM1NzMuNDc4LDUxNC41NzIsNTM1LjY1MSw1NTIuMzg5LDQ4OC4yOTIsNTU2LjQ2OXoiIGZpbGw9IiNGRkZGRkYiLz4KCQkJCTwvZz4KCQkJPC9nPgoJCTwvZz4KCQk8Zz4KCQkJPGc+CgkJCQk8Zz4KCQkJCQk8cGF0aCBkPSJNNTI5LjA2Niw0NDUuOTY2aC0zMC42NzFjLTQuMDg5LTUuODk3LTEwLjg4MS05LjgxMy0xOC41ODgtOS44MTNjLTAuMTE3LDAtMC4yNDQsMC4wMzYtMC4zOCwwLjAzNmwtMjcuOTQ4LTM5LjM0NiAgICAgICBjLTQuMDctNS43MjYtMTIuMDQ4LTcuMDU1LTE3Ljc5Mi0zLjAwM2MtNS43MjYsNC4wODktNy4xMDEsMTIuMDg0LTMuMDAzLDE3LjgyOGwyNy45NjcsMzkuMzYzICAgICAgIGMtMC44NTksMi40MTUtMS40MSw0Ljk4NC0xLjQxLDcuNzI1YzAsMTIuNDY0LDEwLjA4NSwyMi41NDksMjIuNTY2LDIyLjU0OWM3LjcwNywwLDE0LjUzNS0zLjg4LDE4LjU4OC05Ljc5NmgzMC42NzEgICAgICAgYzcuMDM3LDAsMTIuNzYzLTUuNjg4LDEyLjc2My0xMi43NDRDNTQxLjgyOSw0NTEuNjc0LDUzNi4xMDQsNDQ1Ljk2Niw1MjkuMDY2LDQ0NS45NjZ6IiBmaWxsPSIjRkZGRkZGIi8+CgkJCQk8L2c+CgkJCTwvZz4KCQk8L2c+CgkJPGc+CgkJCTxnPgoJCQkJPGc+CgkJCQkJPHBhdGggZD0iTTEyNy4yNDUsMTk1LjU5M2MyMy4xMzcsMCw0MS44Ni0xOC43NDEsNDEuODYtNDEuODUxVjYyLjkzYzAtMjMuMTE5LTE4LjcyMy00MS44NTEtNDEuODYtNDEuODUxICAgICAgIGMtMjMuMTE5LDAtNDEuODMzLDE4LjczMi00MS44MzMsNDEuODUxdjkwLjgyMUM4NS40MTIsMTc2Ljg1MiwxMDQuMTI1LDE5NS41OTMsMTI3LjI0NSwxOTUuNTkzeiIgZmlsbD0iI0ZGRkZGRiIvPgoJCQkJPC9nPgoJCQk8L2c+CgkJPC9nPgoJCTxnPgoJCQk8Zz4KCQkJCTxnPgoJCQkJCTxwYXRoIGQ9Ik0zODMuNTc4LDE5NS41OTNjMjMuMTM4LDAsNDEuODYtMTguNzQxLDQxLjg2LTQxLjg1MVY2Mi45M2MwLTIzLjExOS0xOC43MjMtNDEuODUxLTQxLjg2LTQxLjg1MSAgICAgICBjLTIzLjEwMSwwLTQxLjgzMiwxOC43MzItNDEuODMyLDQxLjg1MXY5MC44MjFDMzQxLjczNiwxNzYuODUyLDM2MC40NzgsMTk1LjU5MywzODMuNTc4LDE5NS41OTN6IiBmaWxsPSIjRkZGRkZGIi8+CgkJCQk8L2c+CgkJCTwvZz4KCQk8L2c+CgkJPGc+CgkJCTxnPgoJCQkJPGc+CgkJCQkJPHBhdGggZD0iTTE4My45NTcsMzExLjc5M2MwLTExLjk0OC05LjY2LTIxLjYyNi0yMS42MzYtMjEuNjI2aC00MC4xMDVjLTExLjk0OCwwLTIxLjY1Myw5LjY3OC0yMS42NTMsMjEuNjI2djQwLjA4OCAgICAgICBjMCwxMS45NjYsOS43MDUsMjEuNjcyLDIxLjY1MywyMS42NzJoNDAuMTA1YzExLjk2NiwwLDIxLjYzNi05LjcwNiwyMS42MzYtMjEuNjcyVjMxMS43OTN6IiBmaWxsPSIjRkZGRkZGIi8+CgkJCQk8L2c+CgkJCTwvZz4KCQk8L2c+CgkJPGc+CgkJCTxnPgoJCQkJPGc+CgkJCQkJPHBhdGggZD0iTTI5Ny4xMjcsMzExLjgyYzAtMTEuOTQ4LTkuNjg3LTIxLjYxNy0yMS42MDgtMjEuNjE3aC00MC4xMjRjLTExLjk0OCwwLTIxLjYxOCw5LjY2OS0yMS42MTgsMjEuNjE3djQwLjA5NyAgICAgICBjMCwxMS45Myw5LjY2OSwyMS42MzYsMjEuNjE4LDIxLjYzNmg0MC4xMjRjMTEuOTMsMCwyMS42MDgtOS43MDYsMjEuNjA4LTIxLjYzNlYzMTEuODJ6IiBmaWxsPSIjRkZGRkZGIi8+CgkJCQk8L2c+CgkJCTwvZz4KCQk8L2c+CgkJPGc+CgkJCTxnPgoJCQkJPGc+CgkJCQkJPHBhdGggZD0iTTM0OC41NDgsMjkwLjE2N2MtMTEuOTY3LDAtMjEuNjU0LDkuNjc4LTIxLjY1NCwyMS42MjZ2NDAuMDg4YzAsMTAuODI2LDguMDY4LDE5LjM2NSwxOC40MTYsMjAuOTg0ICAgICAgIGMxNS44NjQtMjQuNzExLDM4LjMzMi00NC43MTksNjQuOTM0LTU3LjY1M3YtMy40MTljMC0xMS45NDgtOS42NjktMjEuNjI2LTIxLjYzNi0yMS42MjZIMzQ4LjU0OHoiIGZpbGw9IiNGRkZGRkYiLz4KCQkJCTwvZz4KCQkJPC9nPgoJCTwvZz4KCQk8Zz4KCQkJPGc+CgkJCQk8Zz4KCQkJCQk8cGF0aCBkPSJNMTIyLjIyNSwzOTguODMzYy0xMS45NDgsMC0yMS42NTQsOS42NjktMjEuNjU0LDIxLjYxN3Y0MC4xMDVjMCwxMS45NDgsOS43MDYsMjEuNjE3LDIxLjY1NCwyMS42MTdoNDAuMTI0ICAgICAgIGMxMS45NDgsMCwyMS42MDgtOS42NjksMjEuNjA4LTIxLjYxN1Y0MjAuNDVjMC0xMS45NDgtOS42Ni0yMS42MTctMjEuNjA4LTIxLjYxN0gxMjIuMjI1eiIgZmlsbD0iI0ZGRkZGRiIvPgoJCQkJPC9nPgoJCQk8L2c+CgkJPC9nPgoJCTxnPgoJCQk8Zz4KCQkJCTxnPgoJCQkJCTxwYXRoIGQ9Ik0yNzUuNDczLDM5OC44NTFoLTQwLjA4N2MtMTEuOTQ4LDAtMjEuNjE3LDkuNjg4LTIxLjYxNywyMS42MzZ2NDAuMDY5YzAsMTEuOTQ4LDkuNjY5LDIxLjYxNywyMS42MTcsMjEuNjE3aDQwLjA4NyAgICAgICBjMTEuOTMsMCwyMS42MTgtOS42NjksMjEuNjE4LTIxLjYxN3YtNDAuMDY5QzI5Ny4wOTEsNDA4LjUzOCwyODcuNDAzLDM5OC44NTEsMjc1LjQ3MywzOTguODUxeiIgZmlsbD0iI0ZGRkZGRiIvPgoJCQkJPC9nPgoJCQk8L2c+CgkJPC9nPgoJCTxnPgoJCQk8Zz4KCQkJCTxnPgoJCQkJCTxwYXRoIGQ9Ik0zMzMuOTM5LDUyMy41OUgxMzAuNDc0Yy0zNS4wMjIsMC02My41MjMtMjguNS02My41MjMtNjMuNDg2VjI0Ny41OTJoMzc2Ljk1OHY1NS42MDggICAgICAgYzExLjU1MS0yLjY1OSwyMy41MTgtNC4yMTUsMzUuODk5LTQuMjE1YzEwLjYxOSwwLDIwLjk4NCwxLjA5NSwzMS4wMzMsMy4wOTRWMTAyLjIwNGgtNjAuMjkzdjUxLjUzOCAgICAgICBjMCwzNi45MjEtMzAuMDIxLDY2Ljk1MS02Ni45Nyw2Ni45NTFjLTM2LjkzLDAtNjYuOTUtMzAuMDI5LTY2Ljk1LTY2Ljk1MXYtNTEuNTM4SDE5NC4yMTN2NTEuNTM4ICAgICAgIGMwLDM2LjkyMS0zMC4wMzksNjYuOTUxLTY2Ljk2OSw2Ni45NTFjLTM2LjkxMywwLTY2Ljk1MS0zMC4wMjktNjYuOTUxLTY2Ljk1MXYtNTEuNTM4SDB2MzU3Ljg5MSAgICAgICBjMCw3Mi4wMzQsNTguNDEyLDEzMC40NzQsMTMwLjQ3NCwxMzAuNDc0aDI0OS44ODVjMi45NjcsMCw1Ljg5Ny0wLjI0NCw4LjgxLTAuNDM1ICAgICAgIEMzNjUuMTYzLDU3My41NDUsMzQ1Ljk4Nyw1NTAuNTI1LDMzMy45MzksNTIzLjU5eiIgZmlsbD0iI0ZGRkZGRiIvPgoJCQkJPC9nPgoJCQk8L2c+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                                                <h4 class="fit-h4-top-cat">Events</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 ">
+                                        <a href="view_all/discount-zone/all">
+                                            <div class="main_cat_box_home text-center embark_effect1">
+                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDIwLjc2NCAyMC43NjQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwLjc2NCAyMC43NjQiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgogIDxnPgogICAgPHBhdGggZD0ibTE5Ljc2NCwyLjM4MmgtMTUuMzgyYy0wLjM3OSwwLTAuNzI1LDAuMjE0LTAuODk0LDAuNTUzbC0zLjI3Nyw2LjU1MmMtMC4yODEsMC41NjMtMC4yODEsMS4yMjYgMS4zODc3OGUtMTYsMS43ODlsMy4yNzYsNi41NTNjMC4xNjksMC4zMzkgMC41MTYsMC41NTMgMC44OTQsMC41NTNoMTUuMzgyYzAuNTUyLDAgMS0wLjQ0OCAxLTF2LTE0YzAuMDAxLTAuNTUyLTAuNDQ3LTEtMC45OTktMXptLTExLjUsMy41YzEuMTA1LDAgMiwwLjg5NSAyLDIgMCwxLjEwNS0wLjg5NSwyLTIsMnMtMi0wLjg5NS0yLTJjOC44ODE3OGUtMTYtMS4xMDUgMC44OTUtMiAyLTJ6bTYsMTBjLTEuMTA1LDAtMi0wLjg5NS0yLTIgMC0xLjEwNSAwLjg5NS0yIDItMnMyLDAuODk1IDIsMmMwLDEuMTA1LTAuODk2LDItMiwyem0tNi41ODYsMGwtMS40MTQtMS40MTQgOC41ODYtOC41ODYgMS40MTQsMS40MTQtOC41ODYsOC41ODZ6IiBmaWxsPSIjRkZGRkZGIi8+CiAgPC9nPgo8L3N2Zz4K" />
+                                                <h4 class="fit-h4-top-cat">Discount Zone</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 ">
+                                        <a href="/directory">
+                                            <div class="main_cat_box_home text-center embark_effect1">
+                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIwNCAyMDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIwNCAyMDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8cGF0aCBkPSJNODksODloMjV2MzFoNTFWMTRoLTE2VjBINTV2MTRIMzl2MTA2aDUwVjg5eiBNMTI2LDI5aDI0djE2aC0yNFYyOXogTTEyNiw1OWgyNHYxNmgtMjRWNTl6IE0xMjYsODloMjR2MTZoLTI0Vjg5eiBNODksMjkgICBoMjV2MTZIODlWMjl6IE04OSw1OWgyNXYxNkg4OVY1OXogTTc3LDEwNUg1M1Y4OWgyNFYxMDV6IE03Nyw3NUg1M1Y1OWgyNFY3NXogTTc3LDQ1SDUzVjI5aDI0VjQ1eiIgZmlsbD0iI0ZGRkZGRiIvPgoJPHBvbHlnb24gcG9pbnRzPSIxNjQsMTc0IDE2NCwxNTMgMTY0LDEzNSAxNjQsMTM0IDQwLDEzNCA0MCwxMzUgNDAsMTUzIDQwLDE3NCAyOSwxNzQgMjksMjA0IDcwLDIwNCA3MCwxNzQgNTksMTc0IDU5LDE1MyAgICA2MC4wODMsMTUzIDE0NSwxNTMgMTQ1LDE3NCAxMzQsMTc0IDEzNCwyMDQgMTc1LDIwNCAxNzUsMTc0ICAiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+                                                <h4 class="fit-h4-top-cat">Companies</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 ">
+                                        <a href="/register/company">
+                                            <div class="main_cat_box_home text-center embark_effect1">
+                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGc+CgkJPHJlY3QgeD0iOTAiIHk9IjkwIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjMwIiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cmVjdCB4PSIyNDIiIHk9IjIxMCIgd2lkdGg9IjkwIiBoZWlnaHQ9IjkwIiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNNDk3LDYwaC03NVYxNWMwLTguMjkxLTYuNzA5LTE1LTE1LTE1SDE1QzYuNzA5LDAsMCw4LjcwOSwwLDE3djQzNWMwLDMzLjA5MSwyNi45MDksNjAsNjAsNjBjMTU0LjgxNiwwLDI0NS45NTEsMCwzOTIsMCAgICBjMzMuMDkxLDAsNjAtMjYuOTA5LDYwLTYwVjc1QzUxMiw2Ni43MDksNTA1LjI5MSw2MCw0OTcsNjB6IE0zNDcsNDUySDc1Yy0xOS43NzMsMC0xOS44NTQtMzAsMC0zMGgyNzIgICAgQzM2Ni43NzMsNDIyLDM2Ni44NTQsNDUyLDM0Nyw0NTJ6IE0zNDcsMzkySDc1Yy0xOS43NzMsMC0xOS44NTQtMzAsMC0zMGgyNzJDMzY2Ljc3MywzNjIsMzY2Ljg1NCwzOTIsMzQ3LDM5MnogTTc1LDI0MGg5MCAgICBjMTkuNzczLDAsMTkuODU0LDMwLDAsMzBINzVDNTUuMjI3LDI3MCw1NS4xNDYsMjQwLDc1LDI0MHogTTc1LDE4MGg5MGMxOS43NzMsMCwxOS44NTQsMzAsMCwzMEg3NUM1NS4yMjcsMjEwLDU1LjE0NiwxODAsNzUsMTgweiAgICAgTTc1LDMwMGg5MGMxOS43NzMsMCwxOS44NTQsMzAsMCwzMEg3NUM1NS4yMjcsMzMwLDU1LjE0NiwzMDAsNzUsMzAweiBNMzYyLDMxNWMwLDguMjkxLTYuNzA5LDE1LTE1LDE1SDIyNyAgICBjLTguMjkxLDAtMTUtNi43MDktMTUtMTVWMTk1YzAtOC4yOTEsNi43MDktMTUsMTUtMTVoMTIwYzguMjkxLDAsMTUsNi43MDksMTUsMTVWMzE1eiBNMzYyLDEzNWMwLDguMjkxLTYuNzA5LDE1LTE1LDE1SDc1ICAgIGMtOC4yOTEsMC0xNS02LjcwOS0xNS0xNVY3NWMwLTguMjkxLDYuNzA5LTE1LDE1LTE1aDI3MmM4LjI5MSwwLDE1LDYuNzA5LDE1LDE1VjEzNXogTTQ4Miw0NTJjMCwzOS42NC02MCwzOS42NDctNjAsMCAgICBjMC0xMzcuNTY0LDAtMjI1LjA0NiwwLTM2Mmg2MFY0NTJ6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                                                <h4 class="fit-h4-top-cat">Register Free</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
+                                        <a href="/register/visitor">
+                                            <div class="main_cat_box_home text-center embark_effect1">
+                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI3LjAyMSAyNy4wMjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI3LjAyMSAyNy4wMjI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMTcuODU1LDIxLjIyM2MwLTEuOTAyLDEuMDQ5LTMuNTUsMi41ODgtNC40NGMtMC45NjMtMC4zMDgtMi0wLjU1Mi0zLjA5LTAuNzIyYzIuMzQyLTEuMjk5LDMuOTI5LTMuNzk0LDMuOTI5LTYuNjYzICAgIGMwLTQuMjA3LTMuNDEtNy42MTctNy42MTctNy42MTdzLTcuNjE3LDMuNDEtNy42MTcsNy42MTdjMCwyLjg2OCwxLjU4Nyw1LjM2NCwzLjkyOSw2LjY2M0M0LjIyMywxNi45NTgsMCwxOS44OTcsMCwyMy4zODloMTguMzUgICAgQzE4LjA0MSwyMi43MjcsMTcuODU1LDIyLDE3Ljg1NSwyMS4yMjN6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+Cgk8cGF0aCBkPSJNMjMuMDA0LDE3LjIwNmMtMi4yMTgsMC00LjAxOCwxLjc5Ny00LjAxOCw0LjAxOGMwLDIuMjE5LDEuOCw0LjAxNyw0LjAxOCw0LjAxN2MyLjIxOSwwLDQuMDE4LTEuNzk4LDQuMDE4LTQuMDE3ICAgQzI3LjAyLDE5LjAwMiwyNS4yMjMsMTcuMjA2LDIzLjAwNCwxNy4yMDZ6IE0yNS42MjcsMjEuOTM2aC0xLjkwOXYxLjkxaC0xLjQyN3YtMS45MWgtMS45MXYtMS40MjloMS45MXYtMS45MTFoMS40Mjd2MS45MTFoMS45MDkgICBWMjEuOTM2eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                                                <h4 class="fit-h4-top-cat">Subscribe</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Top Parent category end -->
+
+
+                </div>
+                <div class="col-md-3 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="col-md-6 col-sm-3 col-xs-6 ripple-effect" ng-repeat="randomCategory in randomCategories">
+                        <a href="/view_all/promotions/{{randomCategory.category_slug}}">
+                            <div class=" embark_effect1 wellhome text-center badgeHome">
+                                <img ng-src="{{randomCategory.icon}}" />
+                                <h4 class="fit-h4-top-cat">{{randomCategory.category_name}}</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="margin-top: 0px;" class="row text-center"> <!--  margin-bottom: 20px-->
+                <!--<div class="col-md-12 special-heading">-->
+                    <!--<p class="text-left " style="margin-bottom: 0px">Registered companies</p>-->
+                <!--</div>-->
+                <div class="row" style="margin-top: 0px">
+                    <div class="col-md-12" style="padding-left: 10px;">
+                        <div class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item col-xs-12" ng-class="{active:!$index}" ng-repeat="companies in company_row">
+                                    <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3" style="padding: 5px;"
+                                         ng-repeat="comp in companies">
+                                        <a href="/company/{{comp.company_slug}}">
+                                            <div class="panel with-nav-tabs panel-default embark_effect1 fit-company-panel"
+                                                 style="max-height: 100px">
+                                                <div class="panel-body margin-top-0 text-center fit-company-panel-body">
+                                                    <div class="tab-content" style="padding: 0px;">
+                                                        <a href="/company/{{comp.company_slug}}"
+                                                           style="margin-top: 10px; top: auto; bottom: 0px">
+                                                            <img ng-if="comp.company_logo" class="image_shadow"
+                                                                 src="{{logo_path + comp.company_id + '/' + comp.company_logo}}"
+                                                                 style="display: block; margin: 0px auto; width: auto; height: 64px; max-width: 64px" /></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-bottom: 20px;">
+                <!--<div class="col-md-12 special-heading">-->
+                    <!--<p class="text-left " style="margin-bottom: 0px">Search & Filters</p>-->
+                <!--</div>-->
+                <div class="col-md-12" style="text-align: center;">
+                    <form ng-show="!advanced_filter" class="form-inline" style="padding: 10px">
+                        <div class="form-group">
+                            <input  placeholder="What is your Interest?" ng-model="filter.keyword" type="text" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <select ng-change="getCategories()" ng-model="filter.parent_cat"  class="form-control" >
+                                <option value="">Main Categories</option>
+                                <option value="Promotions">Promotions</option>
+                                <option value="Events">Events</option>
+                                <option value="Menu">Menu</option>
+                            </select>
+                        </div>
+                        <div class="form-group" >
+                            <button  ng-click="ApplyFilters()" type="submit" class="btn btn-default" style="width: 100%"><i class="fa fa-search fa-fw"></i> <span class="network-name"> Search</span></button>
+                        </div>
+
+                        <div class="form-group">
+                            <button  ng-click="enableDisableAdvancedFilter()"  type="submit" class="btn btn-default" style="width: 100%"><i class="fa fa-filter fa-fw"></i> <span class="network-name">Advance Filter</span></button>
+                        </div>
+
+
+                    </form>
+                    <form ng-show="advanced_filter" class="form-inline advaced_filter"  style="padding: 10px">
+                        <div class="form-group">
+                            <input  placeholder="What is your Interest?" ng-model="filter.keyword" type="text" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <select ng-change="getCategories()" ng-model="filter.parent_cat"  class="form-control" >
+                                <option value="">Main Categories</option>
+                                <option value="Promotions">Promotions</option>
+                                <option value="Events">Events</option>
+                                <option value="Menu">Menu</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select ng-disabled="enable_categories" ng-model="filter.sub_cat" class="form-control">
+                                <option value="">Sub Categories</option>
+                                <option value="{{cat.category_name}}" ng-repeat="cat in categories">{{cat.category_name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select ng-model="filter.order_by" class="form-control">
+                                <option value="">Order by</option>
+                                <option value="Most viewed">Most viewed</option>
+                                <option value="Newest">Newest</option>
+                                <option value="Oldest">Oldest</option>
+                                <option value="Featured">Featured</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button  ng-click="ApplyFilters()" type="submit" class="btn btn-default" style="width: 100%"><i class="fa fa-search fa-fw"></i> <span class="network-name"> Search</span></button>
+                        </div>
+                        <div class="form-group">
+                            <button  ng-click="enableDisableAdvancedFilter()"  type="submit" class="btn btn-default" style="width: 100%"><i class="fa fa-filter fa-fw"></i> <span class="network-name">Advance Filter</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Content section begin-->
+        <section ng-show="!main_loader">
+
+        <div class="container full-width-container">
+
+            <!--recent and popular promo-->
+            <div ng-show="!filters_apply" class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <ul class="nav nav-pills nav-justified" style="background-color: white; border:0.5px solid #BBBBBB; border-radius: 2px; margin: 0px">
+                        <li  class="active"><a ng-click="getRecentPromotions()"  data-toggle="tab">Recent Promotions </a></li>
+                        <li><a ng-click="getPopularPromotions()"   data-toggle="tab">Popular Promotions</a></li>
+                    </ul>
+                    <span ng-if="loading_tab_view">...</span>
+                    <span ng-if="fr_count == 0 && !loading_tab_view"> Sorry no {{active_tab}} promotions added yet!</span>
+
+                    <div ng-if="fr_count > 0 && !loading_tab_view" class="col-md-12 special-heading"
+                         style="margin-left: 0px;text-align: left;padding-left: 0px;padding-right: 0px;">
+
+                        <a  class="" href="view_all/{{active_tab}}/all">
+                            <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
+                                class="btn btn-info">View All</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--recent and popular promo-->
+
+            <!--recent popular promo tab-->
+            <div ng-show="!filters_apply" class="row">
+                <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="ue_promo in filter_results">
+                    <div class="promo_box" style="margin-top: 0px">
+                        <div class="promo_image text-center" >
+                            <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                <img style="vertical-align: middle; margin-top: auto" ng-click="expand(ue_promo)" src="{{ue_promo.promo_image}}" class="img-responsive" />
+                                <div ng-if="ue_promo.promo_obj.parent_category_slug == 'events'"  id="event_date" class="text-center">
+                                    <div style="font-size: 10px; background-color: dodgerblue; color: #FEDFE2;  border-top: 0px solid cornflowerblue; border-top-left-radius:6px; border-top-right-radius: 6px; padding: 2px ">
+                                        {{ ue_promo.offer_date  | date : 'MMM'}}
+                                    </div>
+                                    <span style="font-size: 20px;">{{ ue_promo.offer_date  | date : 'd'}}</span>
+                                </div>
+
+                                <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                    <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                    <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                    <div class="progress-custom">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                            <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                            <div ng-click="expand(events_promo)" class="promo_heading text-center">
+                                <a >{{ue_promo.promo_name | limitTo : 45 }}</a>
+                            </div>
+                        </a>
+                        <div class="promo_bottom">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="ue_promo.promo_company_logo!='' &&ue_promo.promo_company_logo!=null">
+                                    <img src="{{ue_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                    <img src="{{ue_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--recent popular promo tab-->
+
+            <!--Featured Promotions -->
+            <div ng-show="!filters_apply" style="margin-top: 10px" class="text-center row">
+
+                <div class="col-md-12 special-heading" style="padding-left: 15px;">
+                    <p class="text-left " style="margin-bottom: 0;width: 50%;float: left;">
+                        Featured Promotions
+                    </p>
+                    <a  class="" href="view_all/featured/all"
+                        style="width: 50%;text-align: right;"
+                        ng-if="fr_count > 0 && !loading_tab_view">
+                        <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
+                                class="btn btn-info">View All</button>
+                    </a>
+                </div>
+
+                <div class="col-lg-12" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="ue_promo in feature_promo">
+                        <div class="promo_box" style="margin-top: 0px">
+                            <div class="promo_image text-center" >
+                                <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                    <img style="vertical-align: middle; margin-top: auto" ng-click="expand(ue_promo)" src="{{ue_promo.promo_image}}" class="img-responsive" />
+                                    <div ng-if="ue_promo.promo_obj.parent_category_slug == 'events'"  id="event_date" class="text-center">
+                                        <div style="font-size: 10px; background-color: dodgerblue; color: #FEDFE2;  border-top: 0px solid cornflowerblue; border-top-left-radius:6px; border-top-right-radius: 6px; padding: 2px ">
+                                            {{ ue_promo.offer_date  | date : 'MMM'}}
+                                        </div>
+                                        <span style="font-size: 20px;">{{ ue_promo.offer_date  | date : 'd'}}</span>
+                                    </div>
+
+                                    <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                        <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                        <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                        <div class="progress-custom">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                                <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                <div ng-click="expand(events_promo)" class="promo_heading text-center">
+                                    <a >{{ue_promo.promo_name | limitTo : 45 }}</a>
+                                </div>
+                            </a>
+                            <div class="promo_bottom">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="ue_promo.promo_company_logo!='' &&ue_promo.promo_company_logo!=null">
+                                        <img src="{{ue_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                        <img src="{{ue_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Featured Promotions -->
+
+            <!--upciming events-->
+            <div ng-show="!filters_apply" style="margin-top: 10px" class="text-center row">
+
+                <div class="col-md-12 special-heading" style="padding-left: 15px;">
+                    <p class="text-left " style="margin-bottom: 0;width: 50%;float: left;">
+                        Upcoming Events
+                    </p>
+                    <a  class="" href="view_all/events/all"
+                        style="width: 50%;text-align: right;"
+                        ng-if="fr_count > 0 && !loading_tab_view">
+                        <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
+                                class="btn btn-info">View All</button>
+                    </a>
+                </div>
+
+                <div class="col-lg-12" style="padding-left: 0px;padding-right: 0px;">
+                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="events_promo in upcoming_events">
+                            <div class="promo_box" style="margin-top: 0px">
+                                <div class="promo_image text-center">
+                                    <a href="/promotion/{{events_promo.promo_obj.promotion_slug}}">
+
+
+                                        <div class="event-date" ng-if="events_promo.promo_obj.parent_category_slug == 'events'">
+                                            <meta content="11/11/2017 12:00:00 AM" itemprop="startDate">
+                                            <time class="dtstart" datetime="11/11/2017 12:00:00 AM">
+                                                <span class="value-title" title="11/11/2017 12:00:00 AM">
+                                                    <span class="event-day">{{ events_promo.offer_date  | date : 'd'}}</span>
+                                                    <span class="event-month">{{ events_promo.offer_date  | date : 'MMM'}}</span>
+                                                </span>
+                                            </time>
+                                        </div>
+
+
+                                        <img style="vertical-align: middle; margin-top: auto" ng-click="expand(events_promo)" src="{{events_promo.promo_image}}" class="img-responsive" />
+                                        <!--<div ng-if="events_promo.promo_obj.parent_category_slug == 'events'"   class="text-center">-->
+
+                                            <!--<span style="font-size: 20px;">{{ events_promo.offer_date  | date : 'd'}}</span>-->
+                                            <!--<div style="font-size: 10px; background-color: dodgerblue; color: #FEDFE2;  border-top: 0px solid cornflowerblue; border-top-left-radius:6px; border-top-right-radius: 6px; padding: 2px ">-->
+                                                <!--{{ events_promo.offer_date  | date : 'MMM'}}-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <div class="discount-highlight" ng-if="events_promo.is_discount">
+                                            <p class="discount-amount">{{events_promo.discount_text}}</p>
+                                            <p class="discount-usage">{{events_promo.discount_remain}} available  <span>{{events_promo.discount_claimed}} claimed</span></p>
+                                            <div class="progress-custom">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="{{events_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{events_promo.discount_remain_percentage}}%;">
+                                                    <span class="sr-only">{{events_promo.discount_remain_percentage}}0% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <a href="/promotion/{{events_promo.promo_obj.promotion_slug}}">
+                                    <div ng-click="expand(events_promo)" class="promo_heading text-center">
+                                        <a >{{events_promo.promo_name}}</a>
+                                    </div>
+                                </a>
+                                <div class="promo_bottom">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="events_promo.promo_company_logo!='' &&events_promo.promo_company_logo!=null">
+                                            <img src="{{events_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                            <img src="{{events_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!--upciming events-->
+
+            <!--Discount Zone-->
+            <div ng-show="!filters_apply" style="margin-top: 10px; margin-bottom: 30px" class="text-center row">
+
+                <div class="col-md-12 special-heading" style="padding-left: 15px;">
+                    <p class="text-left " style="margin-bottom: 0;width: 50%;float: left;">
+                        Discount Zone
+                    </p>
+                    <a  class="" href="view_all/discount-zone/all"
+                        style="width: 50%;text-align: right;"
+                        ng-if="dp_count > 0 && !discountPromotionsLoading">
+                        <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
+                                class="btn btn-info">View All</button>
+                    </a>
+                </div>
+
+                <div class="col-lg-12" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12" ng-repeat="d_promo in discountPromotions">
+                        <div class="promo_box" style="margin-top: 0px">
+                            <div class="promo_image text-center">
+                                <a href="/promotion/{{d_promo.promo_obj.promotion_slug}}">
+
+                                    <div class="discount-date" ng-if="d_promo.remain_days!=null">
+                                        <meta content="11/11/2017 12:00:00 AM" itemprop="startDate">
+                                        <time class="dtstart" datetime="11/11/2017 12:00:00 AM">
+                                                <span class="value-title" title="11/11/2017 12:00:00 AM">
+                                                    <span class="discount-day" ng-bind-html="d_promo.remain_days"></span>
+                                                </span>
+                                        </time>
+                                    </div>
+
+                                    <img style="vertical-align: middle; margin-top: auto" ng-click="expand(events_promo)" src="{{d_promo.promo_image}}" class="img-responsive" />
+                                    <!--<div  class="text-center" ng-if="d_promo.remain_days!=null">-->
+                                        <!--<div style="font-size: 10px; background-color: dodgerblue; color: #FEDFE2;  border-top: 0px solid cornflowerblue; border-top-left-radius:6px; border-top-right-radius: 6px; padding: 2px ">-->
+                                          <!--</div>-->
+                                        <!--<span style="font-size: 20px;">{{ d_promo.remain_days}}</span>-->
+                                        <!--<span style="font-size: 20px;">{{ d_promo.offer_date}}</span>-->
+                                    <!--</div>-->
+                                    <div class="discount-highlight" ng-if="d_promo.is_discount">
+                                        <p class="discount-amount">{{d_promo.discount_text}}</p>
+                                        <p class="discount-usage">{{d_promo.discount_remain}} available  <span>{{d_promo.discount_claimed}} claimed</span></p>
+                                        <div class="progress-custom">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{d_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{d_promo.discount_remain_percentage}}%;">
+                                                <span class="sr-only">{{d_promo.discount_remain_percentage}}0% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <a href="/promotion/{{d_promo.promo_obj.promotion_slug}}">
+                                <div ng-click="expand(events_promo)" class="promo_heading text-center">
+                                    <a >{{d_promo.promo_name}}</a>
+                                </div>
+                            </a>
+                            <div class="promo_bottom">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="d_promo.promo_company_logo!='' &&d_promo.promo_company_logo!=null">
+                                        <img src="{{d_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                        <img src="{{d_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--upciming events-->
+
+        </div>
+
+
+        <!-- Filter Results -->
+        <div ng-show="filters_apply" class="container-fluid margin-top-0" style="background-color: white">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="lp-section-title-container text-center ">
+                        <h1>Filter Results <span style="color: #3e3e3e">({{fr_count}} Results)</span></h1>
+                        <a ng-click="resetFilters()" data-toggle="tooltip" data-placement="bottom" title="Rest Filters" class="margin-top-0 margin-bottom-0s" style="cursor: pointer"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDQ0LjgxNiA0NC44MTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ0LjgxNiA0NC44MTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMjIuNDA0LDIxLjE3M2MyLjEyNiwwLDMuODk1LTEuNzI0LDMuODk1LTMuODVWMy44NDlDMjYuMjk5LDEuNzI0LDI0LjUzLDAsMjIuNDA0LDBjLTIuMTI2LDAtMy44OTUsMS43MjQtMy44OTUsMy44NDkgICAgdjEzLjQ3NUMxOC41MSwxOS40NDksMjAuMjc4LDIxLjE3MywyMi40MDQsMjEuMTczeiIgZmlsbD0iI0Q4MDAyNyIvPgoJCTxwYXRoIGQ9Ik0zMC43MjcsMy4zM2MtMC40ODEtMC4yLTEuMDMtMC4xNDctMS40NjYsMC4xNDJjLTAuNDM0LDAuMjg5LTAuNjk1LDAuNzc2LTAuNjk1LDEuMjk4djUuMTEzICAgIGMwLDAuNTYsMC4zMDEsMS4wNzYsMC43ODQsMS4zNTRjNC4xOTIsMi40MDcsNi45MTgsNi44ODQsNi45MTgsMTEuOTk5YzAsNy42NTQtNi4yMTcsMTMuODgyLTEzLjg3LDEzLjg4MiAgICBjLTcuNjU0LDAtMTMuODYtNi4yMjgtMTMuODYtMTMuODgyYzAtNS4xMTMsMi44MTMtOS41ODksNi45MzEtMTEuOTk3YzAuNDc4LTAuMjc5LDAuNzczLTAuNzk0LDAuNzczLTEuMzQ4VjQuNzY5ICAgIGMwLTAuNTIxLTAuMjYxLTEuMDA5LTAuNjk1LTEuMjk4Yy0wLjQzNS0wLjI5LTAuOTg0LTAuMzQyLTEuNDY2LTAuMTQyQzYuMjU3LDYuNTkzLDAuODQ1LDE0LjI3NiwwLjg0NSwyMy4yMzYgICAgYzAsMTEuOTIsOS42NTMsMjEuNTgsMjEuNTcyLDIxLjU4YzExLjkxNywwLDIxLjU1NS05LjY2LDIxLjU1NS0yMS41OEM0My45NzEsMTQuMjc2LDM4LjU1NCw2LjU5MywzMC43MjcsMy4zM3oiIGZpbGw9IiNEODAwMjciLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" /></a>
+                        <hr />
+                    </div><!-- ../section-title-->
+                    <div class="lp-section-content-container lp-list-grid-section col-md-12" ng-show="fr_count > 0">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12" ng-repeat="ue_promo in filter_results">
+                                <div class="promo_box">
+                                    <div class="promo_image text-center">
+                                        <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                            <img style="vertical-align: middle; margin-top: auto" ng-click="expand(ue_promo)" src="{{ue_promo.promo_image}}" class="img-responsive" />
+                                            <div ng-if="ue_promo.promo_obj.parent_category_name == 'Events'"  id="event_date" class="text-center">
+                                                <div style="font-size: 10px; background-color: dodgerblue; color: #FEDFE2;  border-top: 0px solid cornflowerblue; border-top-left-radius:6px; border-top-right-radius: 6px; padding: 2px ">
+                                                    {{ ue_promo.offer_date  | date : 'MMM'}}
+                                                </div>
+                                                <span style="font-size: 20px;">{{ ue_promo.offer_date  | date : 'd'}}</span>
+                                            </div>
+
+                                            <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                                <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                                <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                                <div class="progress-custom">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                                        <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                        <div ng-click="expand(events_promo)" class="promo_heading text-center">
+                                            <a >{{ue_promo.promo_name}}</a>
+                                        </div>
+                                    </a>
+                                    <div class="promo_bottom">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="ue_promo.promo_company_logo!='' &&ue_promo.promo_company_logo!=null">
+                                                <img src="{{ue_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                                <img src="{{ue_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div >
+        <!-- Filter Results -->
+
+    </section>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                        <span style="text-align: center; display: block; margin: auto" class="text-center">
+                            <a href="">----------------------------</a>
+                            <a target="_blank" href="https://www.facebook.com/Finditlk-101415873866649/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                            <a target="_blank" href="https://twitter.com/followers?lang=en"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/findit.lk/"><i id="social-gp" class="fa fa-instagram fa-3x social"></i></a>
+                            <a href="">----------------------------</a>
+                            <br />
+                            <a href="/about_us" style="margin: 7px">About Us</a> |
+                            <a href="/contact_us" style="margin: 7px">Contact Us</a>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </treasure-overlay-spinner>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
