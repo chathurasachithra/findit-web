@@ -112,7 +112,7 @@
                                 'mobile_no'         : $scope.visitor_tel1,
                                 'land_no'           : $scope.visitor_tel2 ,
                                 'email'             : $scope.visitor_email,
-                                'gender'            : $scope.male ? 'male' : 'female'
+                                'gender'            : $scope.male
                             };
                             CustomerService.storeCustomer(param)
                                 .then(function (data) {

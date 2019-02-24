@@ -101,7 +101,7 @@
                         .then(function (data) {
                             $scope.selected_promotion = {
                                 promo_image : ENV.promotion_image_path + data.promotions[0].promotion_id + "/" + data.promotions[0].promotion_image,
-                                promo_company_logo : data.promotions[0].company_logo?  ENV.logo_path + data.promotions[0].company_id + "/" + data.promotions[0].company_logo : null,
+                                promo_company_logo : (data.promotions[0].company_logo != null) ?  ENV.logo_path + data.promotions[0].company_id + "/" + data.promotions[0].company_logo : null,
                                 promo_name : data.promotions[0].promotion_name,
                                 promo_views: data.promotions[0].promotion_unique_views?  data.promotions[0].promotion_views + parseInt(data.promotions[0].promotion_unique_views) : data.promotions[0].promotion_views,
                                 promo_company: data.promotions[0].company_name,
@@ -184,7 +184,7 @@
             function filterWithSubCategory($index){
                 PromotionService.setSubCat($index);
                 PromotionService.setViewAllOption(10);
-                $state.go('/view_all');
+                $state.go('/promotions');
             }
 
             /**
@@ -192,7 +192,7 @@
              **/
             function viewAll($index){
                 PromotionService.setViewAllOption($index);
-                $state.go('/view_all');
+                $state.go('/promotions');
             }
 
             /**
@@ -361,8 +361,8 @@
 
                   if (count < 6 && $scope.selected_promotion.promo_obj.promotion_id != val.promotion_id) {
                     $scope.company_promotions.push({
-                      promo_image: ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                      promo_company_logo: ENV.logo_path + val.company_id + "/" + val.company_logo,
+                      promo_image: ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                      promo_company_logo: ((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                       promo_name: val.promotion_name,
                       promo_views: val.promotion_unique_views ? val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                       promo_company: val.company_name,
@@ -404,8 +404,8 @@
 
                             if(match_count == 0 && $scope.selected_promotion.promo_obj.promotion_id != val.promotion_id){
                                 $scope.related_promotions.push({
-                                    promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                                    promo_company_logo : ENV.logo_path + val.company_id + "/" + val.company_logo,
+                                    promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                                    promo_company_logo : ((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                                     promo_name : val.promotion_name,
                                     promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                                     promo_company: val.company_name,
@@ -446,8 +446,8 @@
                         $scope.upcoming_events = [];
                         angular.forEach(response.promotions, function(val, key){
                             $scope.upcoming_events.push({
-                                promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                                promo_company_logo : ENV.logo_path + val.company_id + "/" + val.company_logo,
+                                promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                                promo_company_logo : ((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                                 promo_name : val.promotion_name,
                                 promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                                 promo_company: val.company_name,
@@ -485,8 +485,8 @@
                         $scope.recent_promo = [];
                         angular.forEach(response.promotions, function(val, key){
                             $scope.recent_promo.push({
-                                promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                                promo_company_logo : ENV.logo_path + val.company_id + "/" + val.company_logo,
+                                promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                                promo_company_logo : ((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                                 promo_name : val.promotion_name,
                                 promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                                 promo_company: val.company_name,

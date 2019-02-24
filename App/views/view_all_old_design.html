@@ -112,6 +112,42 @@
 
 </style>
 
+<header class="find-it-header">
+    <nav class="navbar navbar-default navbar-fixed-top embark_effect1">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="li-nav"><a href="/">Home</a></li>
+                    <li class="li-nav"><a href="/promotions">Promotions</a></li>
+                    <li class="li-nav"><a href="/events">Events</a></li>
+                    <li class="li-nav"><a href="/discount-zone">Discounts</a></li>
+                    <li class="li-nav"><a href="/discount-zone">Offers</a></li>
+                    <li class="li-nav"><a href="/directory">Companies</a></li>
+                    <!--<li><a href="/register/company">Register Free</a></li>-->
+                    <!--<li><a href="/about">About Us</a></li>-->
+                    <!--<li><a href="/contact">Contact Us</a></li>-->
+                    <li>
+                        <a class="menu-button" href="/register/company" >Register</a>
+                    </li>
+                    <li>
+                        <a class="menu-button"  href="/register/visitor" >Subscribe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
 <div>
     <treasure-overlay-spinner active='main_loader'>
 
@@ -123,7 +159,7 @@
                     <div class="col-lg-12">
                         <div class="panel" >
                             <div class="panel-body margin-top-0">
-                                <div class="col-md-6 col-sm-12 col-xs-12 text-right mobile-center">
+                                <div class="col-md-6 col-sm-12 col-xs-12 text-right">
                                     <h1>{{title_message}}</h1>
                                 </div>
                                 <!--<div class="col-md-1 hidden-sm hidden-xs middle-line">-->
@@ -131,7 +167,7 @@
                                 <!--</div>-->
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <a href="/register/company">
-                                        <div class="btn-submit mobile-full-width"> <b>{{submit_button}}</b> </div>
+                                        <div class="btn-submit"> <b>{{submit_button}}</b> </div>
                                     </a>
                                 </div>
                             </div>
@@ -173,28 +209,10 @@
 
                     <!--right sidebar begin-->
                     <div class="col-lg-9 col-lg-push-3">
-                        <div class="row">
-                            <div class="col-xs-12 search-box">
-                                <div class="has-feedback has-search">
-                                    <span class="glyphicon glyphicon-search form-control-feedback" style="width: 48px;top: 8px;line-height: 36px;padding-right: 3px;"></span>
-                                    <input type="text" class="form-control input-lg"
-                                           ng-change="getSearchPromotions()"
-                                           ng-model="search"
-                                           ng-model-options='{ debounce: 500 }'
-                                           style="height: 50px;" placeholder="Search">
-                                </div>
-                            </div>
-                        </div>
+
 
                         <div class="row  promo-container">
-                            <div ng-if="loading_tab_view" class="row find-it-loader text-center">
-                                <div class="col-md-5 col-xs-1"></div>
-                                <div class="col-md-1 col-xs-5"> <div class="loader"></div></div>
-                                <div class="col-md-1 col-xs-5" style="padding-left: 0px;"><span>Loading...</span></div>
-                                <div class="col-md-5 col-xs-1"></div>
-
-                            </div>
-
+                            <span ng-if="loading_tab_view" class="text-center" style="text-align: center; display: block; margin: auto">loading ...</span>
                             <span ng-if="fr_count == 0 && !loading_tab_view" class="text-center" style="text-align: center; display: block; margin: auto"> Sorry no relevant classifieds added yet!</span>
 
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 promo-card"
@@ -245,37 +263,85 @@
                                     </a>
                                 </div>
                             </div>
+
+
+
+
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" ng-repeat="ue_promo in filter_results">
+                                <div class="promo_box">
+                                    <div class="promo_image text-center">
+                                        <a href="/promotion/{{ue_promo.promotion_slug}}">
+                                            <div class="event-date" ng-if="ue_promo.parent_category_slug == 'events'">
+                                                <meta content="11/11/2017 12:00:00 AM" itemprop="startDate">
+                                                <time class="dtstart" datetime="11/11/2017 12:00:00 AM">
+                                                <span class="value-title" title="11/11/2017 12:00:00 AM">
+                                                    <span class="event-day">{{ ue_promo.promo_offer_date  | date : 'd'}}</span>
+                                                    <span class="event-month">{{ ue_promo.promo_offer_date  | date : 'MMM'}}</span>
+                                                </span>
+                                                </time>
+                                            </div>
+
+                                            <div class="discount-date" ng-if="ue_promo.parent_category_slug != 'events' && ue_promo.promo_remain!=null">
+                                                <meta content="11/11/2017 12:00:00 AM" itemprop="startDate">
+                                                <time class="dtstart" datetime="11/11/2017 12:00:00 AM">
+                                                <span class="value-title" title="11/11/2017 12:00:00 AM">
+                                                    <span class="discount-day" ng-bind-html="ue_promo.promo_remain"></span>
+                                                </span>
+                                                </time>
+                                            </div>
+
+                                            <img style="vertical-align: middle; margin-top: auto" ng-click="expand(ue_promo)" src="{{ue_promo.promo_image}}"
+                                                 class="img-responsive" />
+
+
+                                            <div class="discount-highlight" ng-if="ue_promo.is_discount">
+                                                <p class="discount-amount">{{ue_promo.discount_text}}</p>
+                                                <p class="discount-usage">{{ue_promo.discount_remain}} available  <span>{{ue_promo.discount_claimed}} claimed</span></p>
+                                                <div class="progress-custom">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ue_promo.discount_remain_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ue_promo.discount_remain_percentage}}%;">
+                                                        <span class="sr-only">{{ue_promo.discount_remain_percentage}}0% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </a>
+                                    </div>
+
+                                    <a href="/promotion/{{ue_promo.promo_obj.promotion_slug}}">
+                                        <div ng-click="expand(ue_promo)" class="promo_heading text-center">
+                                            <a >{{ue_promo.promo_name}}</a>
+                                        </div>
+                                    </a>
+                                    <div class="promo_bottom">
+                                        <div class="row">{{}}
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" ng-if="ue_promo.promo_company_logo!='' && ue_promo.promo_company_logo!=null">
+                                                <img src="{{ue_promo.promo_company_logo}}" class="small_logo_img img-thumbnail" />
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 promo_company_name ">
+                                                <img src="{{ue_promo.promo_obj.cat_icon}}" class="pull-right" style="width: 18px; height: 18px; margin-right: 10px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
                         </div>
                     </div>
                     <!--right sidebar end-->
 
                     <!--left side bar begin-->
                     <div class="col-lg-3 col-lg-pull-9">
-                        <div class="col-md-12" style="padding-left: 0px;">
-                            <!--<span ng-if="loading_tab_view" class="text-center">loading ...</span>-->
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 category-item"  ng-repeat="cat in categories">
-                                <a href="/{{cat.parent_category_slug}}/{{cat.category_slug}}">
-                                <div class="sub-cat-box">
-                                    <img src="{{cat.icon}}" /> {{cat.category_name}}
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="padding-left: 0px;">
-                            <div class="col-md-12 text-center">
-                                <h4>Companies</h4>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-4 left-company-box"
-                                 ng-repeat="comp in companiesNew">
-                                <a href="/company/{{comp.company_slug}}">
-                                    <div class="embark_effect1 text-center badgeHome">
-                                        <img ng-if="comp.company_logo" class="image_shadow company-image"
-                                             src="{{logo_large_path + comp.company_id + '/' + comp.company_logo}}"
-                                        />
 
-                                    </div>
-                                </a>
+                        <!--<span ng-if="loading_tab_view" class="text-center">loading ...</span>-->
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 category-item"  ng-repeat="cat in categories">
+                            <a href="/{{cat.parent_category_slug}}/{{cat.category_slug}}">
+                            <div class="sub-cat-box">
+                                <img src="{{cat.icon}}" /> {{cat.category_name}}
                             </div>
+                            </a>
                         </div>
                     </div>
                     <!--left side bar end-->

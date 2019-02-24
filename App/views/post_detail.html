@@ -1,3 +1,4 @@
+<link type="text/css" rel="stylesheet" href="assets/css/custom-01-26.css" />
 <style>
 
 
@@ -541,13 +542,14 @@
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="view_all/promotions/all">Promotions</a></li>
-                <li><a href="view_all/events/all">Events</a></li>
-                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/promotions">Promotions</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/discount-zone">Discounts</a></li>
+                <li><a href="/discount-zone">offers</a></li>
                 <li><a href="/directory">Companies</a></li>
-                <li><a href="/register/company">Register Free</a></li>
-                <li><a href="/about_us">About Us</a></li>
-                <li><a href="/contact_us">Contact Us</a></li>
+                <li><a href="/register/company">Register</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -803,7 +805,7 @@
                                     <span ng-if="cat_loading" class="text-center" style="text-align: center; display: block; margin: auto">loading ...</span>
                                     <div  class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6"  ng-repeat="cat in categories">
-                                            <a href="view_all/{{selected_promotion.promo_obj.parent_category_slug}}/{{cat.category_slug}}">
+                                            <a href="/{{selected_promotion.promo_obj.parent_category_slug}}/{{cat.category_slug}}">
                                                 <div class=" text-center sub_cat_box embark_effect1">
                                                     <img src="{{cat.icon}}" /><Br />
                                                     <p>{{cat.category_name}}</p>
@@ -869,7 +871,7 @@
                 <div class="container-fluid">
                     <div class="row text-center" style="margin-top: 100px">
                         <h4 class="text-center" style="margin-bottom: 10px">Featured Promotions</h4>
-                        <a  class="" href="/view_all/featured/all"
+                        <a  class="" href="/promotions/featured"
                             style="width: 50%;text-align: right;"
                             ng-if="upcoming_events.length > 0">
                             <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"
@@ -923,7 +925,7 @@
                 <div class="container-fluid">
                     <div class="row text-center" style="margin-top: 40px; margin-bottom: 10px">
                         <h4 class="text-center" style="margin-bottom: 10px">Recent Promotions</h4>
-                        <a  class="" href="/view_all/recent/all"
+                        <a  class="" href="/promotions/recent"
                             style="width: 50%;text-align: right;"
                             ng-if="recent_promo.length > 0">
                             <button type="button" style="background-color: #337ab7;border-radius: 20px;width: 100px;"

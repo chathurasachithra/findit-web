@@ -13,13 +13,14 @@
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="view_all/promotions/all">Promotions</a></li>
-                <li><a href="view_all/events/all">Events</a></li>
-                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/promotions">Promotions</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/discount-zone">Discounts</a></li>
+                <li><a href="/discount-zone">offers</a></li>
                 <li><a href="/directory">Companies</a></li>
-                <li><a href="/register/company">Register Free</a></li>
-                <li><a href="/about_us">About Us</a></li>
-                <li><a href="/contact_us">Contact Us</a></li>
+                <li><a href="/register/company">Register</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -58,14 +59,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-init="male='male'">
                     <label class="control-label col-sm-3" >Gender :</label>
                     <div class="col-sm-9">
                         <div class="radio">
-                            <label><input type="radio" name="optradio" ng-model="male">Male</label>
+                            <label><input type="radio" name="optradio" value="male" ng-model="male">Male</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio" ng-model="female">Female</label>
+                            <label><input type="radio" name="optradio" value="female" ng-model="male">Female</label>
                         </div>
                     </div>
                 </div>
@@ -116,19 +117,35 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="sel1">Province :</label>
+                    <label class="control-label col-sm-3" for="sel1">District :</label>
                     <div class="col-sm-9">
                         <select class="form-control" id="sel1" ng-model="province" name="province" required
                                 data-placement="Select Province"  style="max-width: 580px;">
-                            <option value="Central Province" >Central Province</option>
-                            <option value="Eastern Province" >Eastern Province</option>
-                            <option value="Northern Province" >Northern Province</option>
-                            <option value="Southern Province" >Southern Province</option>
-                            <option value="Western Province" >Western Province</option>
-                            <option value="North Western Province" >North Western Province</option>
-                            <option value="North Central Province" >North Central Province</option>
-                            <option value="Uva Province" >Uva Province</option>
-                            <option value="Sabaragamuwa Province" >Sabaragamuwa Province</option>
+                            <option value="Ampara" >Ampara</option>
+                            <option value="Anuradhapura" >Anuradhapura</option>
+                            <option value="Badulla" >Badulla</option>
+                            <option value="Batticaloa" >Batticaloa</option>
+                            <option value="Colombo" >Colombo</option>
+                            <option value="Galle" >Galle</option>
+                            <option value="Gampaha" >Gampaha</option>
+                            <option value="Hambantota" >Hambantota</option>
+                            <option value="Jaffna" >Jaffna</option>
+                            <option value="Kalutara" >Kalutara</option>
+                            <option value="Kandy" >Kandy</option>
+                            <option value="Kegalle" >Kegalle</option>
+                            <option value="Kilinochchi" >Kilinochchi</option>
+                            <option value="Kurunegala" >Kurunegala</option>
+                            <option value="Mannar" >Mannar</option>
+                            <option value="Matale" >Matale</option>
+                            <option value="Matara" >Matara</option>
+                            <option value="Moneragala" >Moneragala</option>
+                            <option value="Mullaitivu" >Mullaitivu</option>
+                            <option value="Nuwara Eliya" >Nuwara Eliya</option>
+                            <option value="Polonnaruwa" >Polonnaruwa</option>
+                            <option value="Puttalam" >Puttalam</option>
+                            <option value="Ratnapura" >Ratnapura</option>
+                            <option value="Trincomalee" >Trincomalee</option>
+                            <option value="Vavuniya" >Vavuniya</option>
                         </select>
                         <!--Error Messages-->
                         <div ng-if="from_visitor.province.$dirty" ng-messages="from_visitor.province.$error" role="alert">

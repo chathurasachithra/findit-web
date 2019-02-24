@@ -3,13 +3,14 @@
 
     angular.module('app')
 
-        .controller('DirectoryController', function ($scope, $location, $routeParams, $timeout, $rootScope, categoryService, PromotionService, companyService,  ENV, $window) {
+        .controller('DirectoryController', function ($scope, $location, $routeParams, $timeout, $rootScope,
+                                                     categoryService, PromotionService, companyService,  ENV, $window) {
 
             $scope.logo_path = ENV.logo_path;
             $scope.active = "all";
             $scope.search = '';
             $scope.selectedCategory = null;
-
+            $scope.currentUrl = $location.absUrl();
             $rootScope.hitDirectory = true;
 
             getCategories();

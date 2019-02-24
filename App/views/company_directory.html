@@ -9,6 +9,70 @@
         padding-right: 12px;
         padding-left: 34px;
     }
+
+    .btn-submit {
+        min-height: 105px;
+        background: -webkit-linear-gradient(#b9d8e0, #046c84);
+        background: linear-gradient(#046c84, #005f8d);
+        -webkit-box-shadow: 0 1px 2px 0 #ccc;
+        box-shadow: 0 1px 2px 0 #ccc;
+        border-radius: 3px;
+        text-shadow: 0 1px 0 #edf1f3;
+        color: #fff!important;
+        padding: 10px;
+        padding-top: 25px;
+    }
+
+    .btn-submit b {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 59%;
+        font-weight: 100;
+        transform: translate(-50%,-50%);
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .social-buttons {
+        font-size: 15px;
+        padding: 5px 8px;
+        margin-right: 10px;
+        line-height: 0.428571;
+        position: relative;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #fff;
+        border-color: rgba(0,0,0,0.2);
+        border-radius: 20px;
+        margin-bottom: 2px;
+    }
+
+    .social_share_custom {
+        font-size: 16px;
+        padding-left: 2px;
+        padding-right: 8px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+
+    .social-buttons span {
+        font-weight: 600;
+    }
+
+    .social-buttons-twt {
+        color: #55acee;
+    }
+
+    .social-buttons-goo {
+        color: #ca3523;
+    }
+
+    .social-buttons-ln {
+        color: #005f8d;
+    }
 </style>
 
 <nav class="navbar navbar-default navbar-fixed-top embark_effect1">
@@ -26,18 +90,68 @@
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="view_all/promotions/all">Promotions</a></li>
-                <li><a href="view_all/events/all">Events</a></li>
-                <li><a href="view_all/discount-zone/all">Discount zone</a></li>
+                <li><a href="/promotions">Promotions</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/discount-zone">Discount zone</a></li>
                 <li><a href="/directory">Companies</a></li>
-                <li><a href="/register/company">Register Free</a></li>
-                <li><a href="/about_us">About Us</a></li>
-                <li><a href="/contact_us">Contact Us</a></li>
+                <li><a href="/register/company">Register</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container-fluid" style="margin-top: 100px">
+
+    <div class="row">
+
+
+        <div class="col-lg-12" style="">
+            <div class="panel with-nav-tabs panel-default embark_effect1" >
+                <div class="panel-body margin-top-0">
+                    <div class="col-md-10">
+                        <h1 style="font-size: 21px;font-weight: 800;margin-top: 10px;">
+                            Business Directory</h1>
+                        <p>Find a Business, Products, or Service You Need</p>
+                        <div class="panel-body margin-top-0 text-center" style="padding: 0px;">
+                            <div class="tab-content" style="text-align: left;">
+                                <a title="Share with friends" class="btn social-buttons" style="background-color: #3b5998"
+                                   href="https://www.facebook.com/sharer/sharer.php?u={{currentUrl}}"  target="_blank">
+                                    <i style="cursor: pointer;" class="fa fa-facebook-square social_share_custom"></i>
+                                    <span>Share</span>
+                                </a>
+                                <a title="Share with friends" class="btn social-buttons" style="background-color: #55acee"
+                                   href="https://twitter.com/share?url={{currentUrl}}"  target="_blank">
+                                    <i style="cursor: pointer;" class="fa fa-twitter-square social_share_custom"></i>
+                                    <span>Tweet</span>
+                                </a>
+
+                                <a title="Share with friends" class="btn social-buttons" style="background-color: #ca3523"
+                                   href="https://plus.google.com/share?url={{currentUrl}}"  target="_blank">
+                                    <i style="cursor: pointer;" class="fa fa-google-plus-square social_share_custom"></i>
+                                    <span>Share</span>
+                                </a>
+                                <a title="Share with friends" class="btn social-buttons" style="background-color: #005f8d"
+                                   href="https://www.linkedin.com/shareArticle?mini=true&url={{currentUrl}}"  target="_blank">
+                                    <i style="cursor: pointer;" class="fa fa-linkedin-square social_share_custom"></i>
+                                    <span>Share</span>
+                                </a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 hidden-sm hidden-xs" style="padding-right: 0px;padding-left: 30px;">
+                        <a href="/register/company">
+                            <div class="btn-submit"> <b>Register a Business</b> </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="row">
         <div class="col-lg-3" style="margin-bottom: 10px;">
             <h6 class="text-center" style="margin-top: 0px; margin-left: 18px; color: cornflowerblue">Active : {{active | uppercase}}</h6>

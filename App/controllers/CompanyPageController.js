@@ -21,6 +21,11 @@
       $scope.discounts_count                  = 0;
       $scope.total_promotions                 = 0;
       $scope.all                              = false;
+      $scope.currentUrl = $location.absUrl();
+      $scope.viewAllPromotionsButton = false;
+      $scope.allPromotions = {};
+      $scope.viewAllGalleryButton = false;
+      $scope.allGallery = {};
 
       companyService.get({id : $scope.company_id})
         .then(function (data) {
@@ -63,8 +68,13 @@
               title : image.title,
               desc : image.description,
             });
-
           });
+
+          if ($scope.promo_images.length > 6) {
+            $scope.viewAllGalleryButton = true;
+            $scope.allGallery= angular.copy($scope.promo_images);
+            $scope.promo_images = $scope.promo_images.slice(0, 6)
+          }
 
           var metaTags = $scope.company.desc;
           if (data.companies[0] && data.companies[0].meta_tags && data.companies[0].meta_tags != '') {
@@ -181,11 +191,13 @@
                 promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
                 promo_company_logo : ENV.logo_path + val.company_id + "/" + val.company_logo,
                 promo_name : val.promotion_name,
+                promotion_description : val.promotion_description,
                 promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                 promo_company: val.company_name,
                 promo_category_id: val.parent_category_id,
                 promo_date : val.created_at,
                 promo_obj : val,
+                offer_end_date : (val.offer_end_date) ? new Date(val.offer_end_date.replace(/-/g,"/")).toISOString().slice(0,10) : null,
                 is_discount : $scope.checkIsDiscountExist(val),
                 discount_text : $scope.getDiscountText(val),
                 discount_remain : val.max_amount - val.used_amount,
@@ -210,6 +222,12 @@
             }
             $scope.all = false;
             $scope.fr_count = $scope.filter_results.length;
+
+            if ($scope.filter_results.length > 8) {
+              $scope.viewAllPromotionsButton = true;
+              $scope.allPromotions = angular.copy($scope.filter_results);
+              $scope.filter_results = $scope.filter_results.slice(0, 8)
+            }
             $scope.loading_tab_view = false;
 
           })
@@ -225,6 +243,11 @@
       $scope.selectedVideo = '';
       $scope.setVideoId = function(video){
         $scope.selectedVideo = video;
+      };
+
+      $scope.selectedImage = '';
+      $scope.setImage = function(image){
+        $scope.selectedImage = image;
       };
 
       $scope.checkIsDiscountExist = function (object) {
@@ -253,6 +276,20 @@
           }
         }
         return '';
+      };
+
+      $scope.toggle = false;
+
+      $scope.viewAll = function (type) {
+
+        if (type == 'promotions') {
+          $scope.viewAllPromotionsButton = false;
+          $scope.filter_results = $scope.allPromotions;
+        } else {
+          $scope.viewAllGalleryButton = false;
+          $scope.promo_images = $scope.allGallery;
+        }
+        return true;
       };
 
     })

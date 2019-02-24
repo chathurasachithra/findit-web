@@ -21,6 +21,9 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
                         config.headers['Auth-Token'] = token;
                     }
                 }
+
+
+
                 return config;
             },
 
@@ -47,39 +50,13 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: 'App/views/home.html',
             controller: 'HomePageController'
         })
-        .when('/home-demo', {
-          templateUrl: 'App/views/home-demo.html',
-          controller: 'HomeDemoPageController'
-        })
-        .when('/promotions', {
+      .when('/home-demo', {
+        templateUrl: 'App/views/home-demo.html',
+        controller: 'HomeDemoPageController'
+      })
+        .when('/view_all/:option/:sub', {
             templateUrl: 'App/views/view_all.html',
-            controller: 'ViewAllController',
-            category: 'promotions'
-        })
-        .when('/events', {
-          templateUrl: 'App/views/view_all.html',
-          controller: 'ViewAllController',
-          category: 'events'
-        })
-        .when('/discount-zone', {
-          templateUrl: 'App/views/view_all.html',
-          controller: 'ViewAllController',
-          category: 'discount-zone'
-        })
-        .when('/promotions/:sub', {
-          templateUrl: 'App/views/view_all.html',
-          controller: 'ViewAllController',
-          category: 'promotions'
-        })
-        .when('/events/:sub', {
-          templateUrl: 'App/views/view_all.html',
-          controller: 'ViewAllController',
-          category: 'events'
-        })
-        .when('/discount-zone/:sub', {
-          templateUrl: 'App/views/view_all.html',
-          controller: 'ViewAllController',
-          category: 'discount-zone'
+            controller: 'ViewAllController'
         })
         .when('/promotion/:pid', {
             templateUrl: 'App/views/post_detail.html',
@@ -100,10 +77,10 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: 'App/views/company_directory.html',
             controller: 'DirectoryController'
         })
-        .when('/about', {
+        .when('/about_us', {
             templateUrl: 'App/views/about_us.html'
         })
-        .when('/contact', {
+        .when('/contact_us', {
             templateUrl: 'App/views/contact_us.html'
         })
         .when('/register/visitor', {

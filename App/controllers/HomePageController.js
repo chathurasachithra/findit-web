@@ -12,19 +12,10 @@
              * SEO tags
              */
             $scope.metaInformation = {
-                description : 'Findit.lk is an online information hub which provide the latest details on promotions,' +
-                ' discounts and events taking place across Sri Lanka.Also this platform helps to grow any business using' +
-                ' digital marketing tools.In the findit.lk database, you will find registered companies from major' +
-                ' industries of which you can now hunt for the best deal available out there on your expected product' +
-                ' or service and also compare prices amongst each other. This way, through findit.lk, you are bound to' +
-                ' find for yourself, for whichever requirement, the best deal that money can buy! If you register with' +
-                ' findit.lk, you will receive exclusive offers and the best deals in town, courtesy of our partner' +
-                ' companies that are registered with us.',
-                keywords : 'Promotions In Sri Lanka, Discounts in srilanka, Events in sri lanka, Companies in sri lanka,' +
-                ' deals in srilanka,offers in sri lanka, online business sri lanka, How to promote business online,' +
-                ' Directory Sri lanka, Business in srilanka',
-                title : 'Findit.lk',
-                image : 'assets/images/logo.jpg',
+                description : 'Find latest offers and daily update on banks, credit cards, travel, education, restaurants, hotels, food, clothing, electronics, events, holiday and more',
+                keywords : 'promotions,discounts,events,companies,deals, offers,online,promote,coupons,advertising',
+                title : 'Online hub for Promotions, offers, events and discounts in Sri Lanka',
+                image : 'http://findit.lk/assets/images/logo.jpg',
                 url : $location.absUrl()
             };
             $rootScope.$broadcast('seoUpdate', $scope.seoInformation);
@@ -40,14 +31,56 @@
             $scope.enable_categories = false;
             $scope.active_tab = 'featured';
             $scope.company_row = [];
-            $scope.logo_path = ENV.logo_path;
+            $scope.logo_path = ENV.logo_thumb_path;
+            $scope.logo_large_path = ENV.logo_path;
             $scope.feature_promo = [];
+            $scope.recent_promo = [];
+            $scope.partner_companies = [];
             $scope.filter = {
                 keyword : null,
                 parent_cat : null,
                 sub_cat : null,
                 order_by : null
             };
+
+            $scope.mainCategories = [
+              {
+                title: 'Weekly',
+                desc: 'Discover most recent and upcoming details on discounts, events and promotions taking place across sri lanka.',
+                image: '/assets/images/main-promo/weekly.jpg',
+                url: '/promotions/weekly',
+              },
+              {
+                title: 'Book It',
+                desc: 'Discover most recent and upcoming details on hotel offers discounts and promotions taking place in hotels and resorts across Sri Lanka.',
+                image: '/assets/images/main-promo/bookit.jpg',
+                url: '/promotions/hotel-resorts',
+              },
+              {
+                title: 'Taste It',
+                desc: 'Discover the best offers on Foods, Drink, Promotions, Offers and Discounts from the best restaurants in Sri Lanka.',
+                image: '/assets/images/main-promo/eatit.jpg',
+                url: '/promotions/food-beverage',
+              },
+              {
+                title: 'Study It',
+                desc: 'Discover the best MBA, diploma, degree programs, education, institutes, academies, promotions, offers and discounts from the institutes in Sri Lanka.',
+                image: '/assets/images/main-promo/studyit.jpg',
+                url: '/promotions/education',
+              },
+              {
+                title: 'Explore It',
+                desc: 'Discover the best travel offers, tour packages, discounts, offers and promotions from the travel agents in Sri Lanka.',
+                image: '/assets/images/main-promo/exploreit.jpg',
+                url: '/promotions/travel',
+              },
+              {
+                title: 'Save It',
+                desc: 'Discover the best banks, credit cards promotions, offers and discounts from the banks in Sri Lanka.',
+                image: '/assets/images/main-promo/saveit.jpg',
+                url: '/promotions/bank-cards',
+              },
+            ];
 
             /**
              * $scope functions
@@ -106,6 +139,11 @@
                     angular.element('#findit').addClass('slide');
 
                 });
+
+            categoryService.getCategories({parent_category_id : 1, limit: 'top20'})
+              .then(function (data) {
+                $scope.categories = data.categories;
+              });
 
             function resetFilters(){
                 $scope.filter = {
@@ -198,18 +236,18 @@
 
             function ApplyFilters() {
                 $scope.filters_apply = true;
-                var p_cat_id = $scope.filter.sub_cat ? null : getParentCategoryId();
-                var orders = getOrderBy();
+                companyService.get({type : 1, search: $scope.filter.keyword ? $scope.filter.keyword : null})
+                  .then(function (data) {
 
-                var param = {
-                    parent_category_id      : p_cat_id,
-                    category_id             : $scope.filter.sub_cat ? getSubCategoryId() : null,
-                    keyword                 : $scope.filter.keyword ? $scope.filter.keyword : null,
-                    promotion_is_featured   : $scope.filter.order_by == 'Featured' ? true : null,
-                    order_by                : orders.order_by,
-                    order                   : orders.order
-                };
-                getPromotionsWithFilters(param);
+                    $scope.filter_results = [];
+                    angular.forEach(data.companies, function(val, key){
+                      if (val.company_logo) {
+                        $scope.filter_results.push(val);
+                      }
+                    });
+                    $scope.fr_count = $scope.filter_results.length;
+                    $scope.loading_tab_view = false;
+                  });
             }
 
 
@@ -260,8 +298,8 @@
                   $scope.filter_results = [];
                   angular.forEach(response.promotions, function(val, key){
                     $scope.feature_promo.push({
-                      promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                      promo_company_logo :((val.company_logo != null) ? ENV.logo_path + val.company_id + "/" + val.company_logo : null),
+                      promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                      promo_company_logo :((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                       promo_name : val.promotion_name,
                       promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                       promo_company: val.company_name,
@@ -299,7 +337,34 @@
                     limit      : 6,
                     offset     : 0
                 };
-                getPromotionsWithFilters(param);
+                PromotionService.getPromotionsWithFilters(param)
+                  .then(function (response) {
+                    $scope.recent_promo = [];
+                    angular.forEach(response.promotions, function(val, key){
+                      $scope.recent_promo.push({
+                        promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                        promo_company_logo :((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
+                        promo_name : val.promotion_name,
+                        promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
+                        promo_company: val.company_name,
+                        promo_category_id: val.parent_category_id,
+                        promo_date : val.created_at,
+                        promo_obj : val,
+                        is_discount : $scope.checkIsDiscountExist(val),
+                        discount_text : $scope.getDiscountText(val),
+                        discount_remain : val.max_amount - val.used_amount,
+                        discount_remain_percentage : Math.round(((val.max_amount - val.used_amount) /val.max_amount) * 100),
+                        discount_claimed: val.used_amount,
+                        offer_date : (val.offer_end_date != null) ? new Date(val.offer_end_date.replace(/-/g, "/")) : null
+                      });
+                    });
+                    $scope.re_count = $scope.recent_promo.length;
+                    $scope.loading_tab_view = false;
+
+                })
+                .catch(function (data) {
+                  console.log(data);
+                });
             }
 
             /**
@@ -319,8 +384,8 @@
                         $scope.upcoming_events = [];
                         angular.forEach(response.promotions, function(val, key){
                             $scope.upcoming_events.push({
-                                promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                                promo_company_logo : ((val.company_logo != null) ? ENV.logo_path + val.company_id + "/" + val.company_logo : null),
+                                promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                                promo_company_logo : ((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                                 promo_name : val.promotion_name,
                                 promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                                 promo_company: val.company_name,
@@ -380,8 +445,8 @@
                                 }
                             }
                             $scope.discountPromotions.push({
-                                promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                                promo_company_logo : ((val.company_logo != null) ? ENV.logo_path + val.company_id + "/" + val.company_logo : null),
+                                promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                                promo_company_logo : ((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                                 promo_name : val.promotion_name,
                                 promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                                 promo_company: val.company_name,
@@ -415,8 +480,8 @@
                         $scope.filter_results = [];
                         angular.forEach(response.promotions, function(val, key){
                             $scope.filter_results.push({
-                                promo_image : ENV.promotion_image_path + val.promotion_id + "/" + val.promotion_image,
-                                promo_company_logo :((val.company_logo != null) ? ENV.logo_path + val.company_id + "/" + val.company_logo : null),
+                                promo_image : ENV.promotion_thumb_image_path + val.promotion_id + "/" + val.promotion_image,
+                                promo_company_logo :((val.company_logo != null) ? ENV.logo_thumb_path + val.company_id + "/" + val.company_logo : null),
                                 promo_name : val.promotion_name,
                                 promo_views: val.promotion_unique_views?  val.promotion_views + parseInt(val.promotion_unique_views) : val.promotion_views,
                                 promo_company: val.company_name,
@@ -445,22 +510,19 @@
                 companyService.get()
                     .then(function (data) {
                         $scope.companies = data.companies;
-                        var i = 1;
-                        var temp = [];
-                        angular.forEach($scope.companies, function (val) {
-                            val.views = val.company_views || val.company_unique_views ?  parseInt(val.company_views) + parseInt(val.company_unique_views) : parseInt(0);
-                            if(i < 17){
-                                temp.push(val);
-                                i++;
-                            }
-                            else{
-                                $scope.company_row.push(temp);
-                                temp = [];
-                                i = 1;
-                            }
-
+                        $scope.companiesNew = [];
+                        angular.forEach($scope.companies, function (val, key) {
+                          if (key < 10) {
+                            $scope.companiesNew.push(val);
+                          }
+                          if (val.company_id == 196 || val.company_id == 542) {
+                            $scope.companiesNew.push(val);
+                          }
+                          if (val.company_id == 248 || val.company_id == 1303 || val.company_id == 400 || val.company_id == 1382) {
+                            $scope.partner_companies.push(val);
+                          }
                         });
-                    })
+                    });
             };
 
           $scope.checkIsDiscountExist = function (object) {
